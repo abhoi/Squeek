@@ -41,6 +41,12 @@
 		F764B5351B4153E2001B85F4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52A1B4153E2001B85F4 /* AFURLRequestSerialization.m */; };
 		F764B5361B4153E2001B85F4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52C1B4153E2001B85F4 /* AFURLResponseSerialization.m */; };
 		F764B5371B4153E2001B85F4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52E1B4153E2001B85F4 /* AFURLSessionManager.m */; };
+		F7BD18061B41A77E008CD526 /* CINBouncyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18051B41A77E008CD526 /* CINBouncyButton.m */; };
+		F7BD18161B41A8E0008CD526 /* ChameleonStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD180D1B41A8E0008CD526 /* ChameleonStatusBar.m */; };
+		F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD180F1B41A8E0008CD526 /* NSArray+Chameleon.m */; };
+		F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18111B41A8E0008CD526 /* UIColor+Chameleon.m */; };
+		F7BD18191B41A8E0008CD526 /* UIColor+CIELAB.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18131B41A8E0008CD526 /* UIColor+CIELAB.m */; };
+		F7BD181A1B41A8E0008CD526 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18151B41A8E0008CD526 /* UIViewController+Chameleon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,20 @@
 		F764B52C1B4153E2001B85F4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		F764B52D1B4153E2001B85F4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		F764B52E1B4153E2001B85F4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F7BD18041B41A77E008CD526 /* CINBouncyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CINBouncyButton.h; sourceTree = "<group>"; };
+		F7BD18051B41A77E008CD526 /* CINBouncyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CINBouncyButton.m; sourceTree = "<group>"; };
+		F7BD180A1B41A8E0008CD526 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
+		F7BD180B1B41A8E0008CD526 /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
+		F7BD180C1B41A8E0008CD526 /* ChameleonStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonStatusBar.h; sourceTree = "<group>"; };
+		F7BD180D1B41A8E0008CD526 /* ChameleonStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChameleonStatusBar.m; sourceTree = "<group>"; };
+		F7BD180E1B41A8E0008CD526 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		F7BD180F1B41A8E0008CD526 /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		F7BD18101B41A8E0008CD526 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		F7BD18111B41A8E0008CD526 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		F7BD18121B41A8E0008CD526 /* UIColor+CIELAB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CIELAB.h"; sourceTree = "<group>"; };
+		F7BD18131B41A8E0008CD526 /* UIColor+CIELAB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CIELAB.m"; sourceTree = "<group>"; };
+		F7BD18141B41A8E0008CD526 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		F7BD18151B41A8E0008CD526 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +162,7 @@
 		CDD3665B1B41239C001025F3 = {
 			isa = PBXGroup;
 			children = (
+				F7D738951B4195A4007A6551 /* Images */,
 				F764B5001B41528A001B85F4 /* Library */,
 				F764B4F81B4148E6001B85F4 /* Cells */,
 				CDD366A11B412FCE001025F3 /* Modal */,
@@ -255,6 +276,9 @@
 		F764B5001B41528A001B85F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F7BD18091B41A8D7008CD526 /* Chameleon */,
+				F7BD18041B41A77E008CD526 /* CINBouncyButton.h */,
+				F7BD18051B41A77E008CD526 /* CINBouncyButton.m */,
 				F764B5381B4153F7001B85F4 /* AFNetworking */,
 			);
 			name = Library;
@@ -301,6 +325,32 @@
 				F764B5131B4153C9001B85F4 /* UIWebView+AFNetworking.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		F7BD18091B41A8D7008CD526 /* Chameleon */ = {
+			isa = PBXGroup;
+			children = (
+				F7BD180A1B41A8E0008CD526 /* Chameleon.h */,
+				F7BD180B1B41A8E0008CD526 /* ChameleonMacros.h */,
+				F7BD180C1B41A8E0008CD526 /* ChameleonStatusBar.h */,
+				F7BD180D1B41A8E0008CD526 /* ChameleonStatusBar.m */,
+				F7BD180E1B41A8E0008CD526 /* NSArray+Chameleon.h */,
+				F7BD180F1B41A8E0008CD526 /* NSArray+Chameleon.m */,
+				F7BD18101B41A8E0008CD526 /* UIColor+Chameleon.h */,
+				F7BD18111B41A8E0008CD526 /* UIColor+Chameleon.m */,
+				F7BD18121B41A8E0008CD526 /* UIColor+CIELAB.h */,
+				F7BD18131B41A8E0008CD526 /* UIColor+CIELAB.m */,
+				F7BD18141B41A8E0008CD526 /* UIViewController+Chameleon.h */,
+				F7BD18151B41A8E0008CD526 /* UIViewController+Chameleon.m */,
+			);
+			name = Chameleon;
+			sourceTree = "<group>";
+		};
+		F7D738951B4195A4007A6551 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +475,7 @@
 			files = (
 				CDD366701B41239C001025F3 /* TwitterReplica.xcdatamodeld in Sources */,
 				CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */,
+				F7BD18161B41A8E0008CD526 /* ChameleonStatusBar.m in Sources */,
 				F764B51B1B4153C9001B85F4 /* UIWebView+AFNetworking.m in Sources */,
 				F764B5311B4153E2001B85F4 /* AFHTTPSessionManager.m in Sources */,
 				CDD3666D1B41239C001025F3 /* AppDelegate.m in Sources */,
@@ -437,12 +488,17 @@
 				F764B5161B4153C9001B85F4 /* UIAlertView+AFNetworking.m in Sources */,
 				F764B5171B4153C9001B85F4 /* UIButton+AFNetworking.m in Sources */,
 				F764B5141B4153C9001B85F4 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F7BD181A1B41A8E0008CD526 /* UIViewController+Chameleon.m in Sources */,
 				F764B5181B4153C9001B85F4 /* UIImageView+AFNetworking.m in Sources */,
 				F764B51A1B4153C9001B85F4 /* UIRefreshControl+AFNetworking.m in Sources */,
 				CDD3666A1B41239C001025F3 /* main.m in Sources */,
+				F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */,
 				F764B5151B4153C9001B85F4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CDD366A41B413002001025F3 /* TweetsModal.m in Sources */,
+				F7BD18061B41A77E008CD526 /* CINBouncyButton.m in Sources */,
+				F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */,
 				F764B5331B4153E2001B85F4 /* AFSecurityPolicy.m in Sources */,
+				F7BD18191B41A8E0008CD526 /* UIColor+CIELAB.m in Sources */,
 				F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */,
 				F764B5301B4153E2001B85F4 /* AFHTTPRequestOperationManager.m in Sources */,
 				F764B5191B4153C9001B85F4 /* UIProgressView+AFNetworking.m in Sources */,
@@ -565,8 +621,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -574,6 +633,8 @@
 				INFOPLIST_FILE = TwitterReplica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitterReplica-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -581,7 +642,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -589,6 +653,7 @@
 				INFOPLIST_FILE = TwitterReplica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitterReplica-Bridging-Header.h";
 			};
 			name = Release;
 		};

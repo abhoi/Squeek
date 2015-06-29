@@ -73,8 +73,8 @@
 
 -(void)LogOutAction
 {
- [self.navigationController popViewControllerAnimated:YES];
-        NSLog(@"%@",[[[Twitter sharedInstance] session] userName]);
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"Signing out of: %@",[[[Twitter sharedInstance] session] userName]);
     [[Twitter sharedInstance] logOut];
 }
 

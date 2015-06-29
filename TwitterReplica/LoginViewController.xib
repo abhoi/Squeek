@@ -15,9 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44D-HH-QWm">
-                    <rect key="frame" x="164" y="319" width="46" height="30"/>
-                    <state key="normal" title="Button">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44D-HH-QWm">
+                    <rect key="frame" x="168" y="75" width="38" height="30"/>
+                    <state key="normal" title="Login">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -29,6 +29,10 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="44D-HH-QWm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VoL-z9-lX4"/>
+                <constraint firstItem="44D-HH-QWm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="fxF-0Q-ir9"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="381" y="343"/>
         </view>
