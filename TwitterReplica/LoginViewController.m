@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import <TwitterKit/TwitterKit.h>
-
+#import "TweetsViewController.h"
 
 @interface LoginViewController ()
 {
@@ -32,6 +32,9 @@
      (TWTRSession *session, NSError *error) {
          if (session) {
              NSLog(@"signed in as %@", [session userName]);
+             TweetsViewController *tweets = [[TweetsViewController alloc]init];
+             [self.navigationController pushViewController:tweets animated:YES];
+             
          } else {
              NSLog(@"error: %@", [error localizedDescription]);
          }
