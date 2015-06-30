@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIImageView+AFNetworking.h"
 
 @interface TweetsModal : NSObject
 
@@ -17,4 +18,9 @@
 @property NSNumber *retweetCount;
 @property NSURL *mediaUrl;
 @property NSURL *profileImg;
+
+- (id) initWithData: (NSDictionary *) receivedDict;
+
+
+
 @end

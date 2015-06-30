@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TweetsModal.h"
 
 @interface TweetsViewController : UIViewController
 
