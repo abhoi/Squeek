@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self appearence];
+    [self appearance];
     
     // request API
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
@@ -59,7 +59,7 @@
 }
 
 #pragma mark - Custom Methods
--(void)appearence
+-(void)appearance
 {
     [tblTweets setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [tblTweets setAllowsSelection:NO];

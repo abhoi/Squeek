@@ -20,6 +20,7 @@
 @property NSURL *profileImg;
 @property NSString *name;
 @property NSString *screenName;
+@property NSString *combinedName;
 
 - (id) initWithData: (NSDictionary *) receivedDict;
 

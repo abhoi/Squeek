@@ -23,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[self navigationController] setNavigationBarHidden:YES];
+    
     // Do any additional setup after loading the view, typically from a nib.
     UIImage *buttonImage = [UIImage imageNamed:@"icon_twitter"];
     NSAttributedString *buttonTitle = [[NSAttributedString alloc] initWithString:@"Login" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
