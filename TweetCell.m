@@ -10,7 +10,6 @@
 
 @implementation TweetCell
 
-
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -33,10 +32,20 @@
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
+        singleTap.numberOfTapsRequired = 1;
+        singleTap.numberOfTouchesRequired = 1;
+        [imgPic setUserInteractionEnabled:YES];
+        [imgPic addGestureRecognizer:singleTap];
     }else{
         constraintImgPicHeight.constant = 0.0f;
     }
 }
 
+- (void) tapImage: (UITapGestureRecognizer *) singleTap {
+    UIImageView *temp = (UIImageView *)singleTap.view;
+    self.mediaController = [[URBMediaFocusViewController alloc] init];
+    [self.mediaController showImage:temp.image fromView:singleTap.view];
+}
 
 @end

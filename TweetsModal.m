@@ -34,15 +34,33 @@
     
     self.combinedName = [NSString stringWithFormat:@"%@ @%@", self.name, self.screenName];
     
-    NSLog(@"%@", self.combinedName);
-    [self printData];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE LLL dd hh:mm:ss ZZZZ yyyy"];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    NSDate *created = [dateFormatter dateFromString:_createdAt];
+    NSDate *current = [[NSDate  alloc] init];
+    NSTimeInterval inter = [current timeIntervalSinceDate:created];
+    if (inter < 60) {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", inter];
+    } else if (inter < 3600) {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", (inter / 60)];
+    } else if (inter < 86400) {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", ((inter / 60) / 60)];
+    } else if (inter < 604800) {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", (((inter / 60) / 60) / 7)];
+    } else if (inter < 2629743.83) {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", ((((inter / 60) / 60) / 7) / 4)];
+    } else {
+        self.timeElapsed = [NSString stringWithFormat:@"%f seconds", (((((inter / 60) / 60) / 7) / 4) / 12)];
+    }
+    NSLog(@"\n%@\n", self.timeElapsed);
     return self;
 }
 
 - (void) printData {
     NSLog(@"Created At: %@", self.createdAt);
-    NSLog(@"Text: %@", self.text);
-    NSLog(@"Tweet ID: %@", self.tweetID);
+    //NSLog(@"Text: %@", self.text);
+    //NSLog(@"Tweet ID: %@", self.tweetID);
     /*NSLog(@"Favorite Count: %@", self.favorite_count);
      NSLog(@"Retweet Count: %@", self.retweet_count);
      NSLog(@"Favorited?: %@", self.favorited);

@@ -22,6 +22,7 @@
 		CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3669D1B412B49001025F3 /* TweetsViewController.m */; };
 		CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD3669E1B412B49001025F3 /* TweetsViewController.xib */; };
 		CDD366A41B413002001025F3 /* TweetsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD366A31B413002001025F3 /* TweetsModal.m */; };
+		F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */; };
 		F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B4FA1B414905001B85F4 /* TweetCell.m */; };
 		F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F764B4FB1B414905001B85F4 /* TweetCell.xib */; };
 		F764B5141B4153C9001B85F4 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B5041B4153C9001B85F4 /* AFNetworkActivityIndicatorManager.m */; };
@@ -83,6 +84,8 @@
 		CDD3669E1B412B49001025F3 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
 		CDD366A21B413002001025F3 /* TweetsModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsModal.h; sourceTree = "<group>"; };
 		CDD366A31B413002001025F3 /* TweetsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsModal.m; sourceTree = "<group>"; };
+		F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBMediaFocusViewController.h; sourceTree = "<group>"; };
+		F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBMediaFocusViewController.m; sourceTree = "<group>"; };
 		F764B4F91B414905001B85F4 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		F764B4FA1B414905001B85F4 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		F764B4FB1B414905001B85F4 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 		F764B5001B41528A001B85F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */,
+				F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */,
 				F7BD18091B41A8D7008CD526 /* Chameleon */,
 				F7BD18041B41A77E008CD526 /* CINBouncyButton.h */,
 				F7BD18051B41A77E008CD526 /* CINBouncyButton.m */,
@@ -478,6 +483,7 @@
 				F7BD18161B41A8E0008CD526 /* ChameleonStatusBar.m in Sources */,
 				F764B51B1B4153C9001B85F4 /* UIWebView+AFNetworking.m in Sources */,
 				F764B5311B4153E2001B85F4 /* AFHTTPSessionManager.m in Sources */,
+				F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */,
 				CDD3666D1B41239C001025F3 /* AppDelegate.m in Sources */,
 				F764B5321B4153E2001B85F4 /* AFNetworkReachabilityManager.m in Sources */,
 				F764B52F1B4153E2001B85F4 /* AFHTTPRequestOperation.m in Sources */,

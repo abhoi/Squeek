@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TweetsModal.h"
+#import "URBMediaFocusViewController.h"
+
 @interface TweetCell : UITableViewCell
 {
     __weak IBOutlet UIImageView *imgAuthor;
@@ -23,6 +25,7 @@
     __weak IBOutlet NSLayoutConstraint *constraintImgPicHeight;
 }
 
+@property URBMediaFocusViewController *mediaController;
 
 -(void)feedTweetData:(TweetsModal *)modal;
 

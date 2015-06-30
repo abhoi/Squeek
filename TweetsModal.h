@@ -21,6 +21,7 @@
 @property NSString *name;
 @property NSString *screenName;
 @property NSString *combinedName;
+@property NSString *timeElapsed;
 
 - (id) initWithData: (NSDictionary *) receivedDict;
 

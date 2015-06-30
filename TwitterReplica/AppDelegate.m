@@ -26,25 +26,20 @@
     
     [Fabric with:@[TwitterKit]];
     
-   
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.window.backgroundColor = [UIColor whiteColor];
-    
     
     LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     TweetsViewController *tweets = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
     UINavigationController *objNav;
     if ([[Twitter sharedInstance] session]) {
          objNav = [[UINavigationController alloc] initWithRootViewController:tweets];
-    }else{
+    } else {
         objNav = [[UINavigationController alloc] initWithRootViewController:login];
     }
     
-    
     self.window.rootViewController = objNav;
-    
     [self.window makeKeyAndVisible];
     
     return YES;

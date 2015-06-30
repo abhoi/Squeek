@@ -15,7 +15,6 @@
     __weak IBOutlet UITableView *tblTweets;
     uint totalTweets;
     NSMutableArray *arrTweetsModal;
-    
 }
 
 @end
@@ -106,7 +105,6 @@
     }
     
     [cell feedTweetData:(TweetsModal *)[arrTweetsModal objectAtIndex:indexPath.row]];
-    
     return cell;
 }
 
