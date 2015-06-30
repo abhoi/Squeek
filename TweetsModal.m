@@ -26,6 +26,9 @@
     self.profileImg = [[receivedDict objectForKey:@"user"] objectForKey:@"profile_image_url_https"];
     NSLog(@"%@", self.profileImg);
     
+    self.name = [[receivedDict objectForKey:@"user"] objectForKey:@"name"];
+    self.screenName = [[receivedDict objectForKey:@"user"] objectForKey:@"screen_name"];
+    
     /*if ([[receivedDict objectForKey:@"entities"] objectForKey:@"urls"]) {
      self.display_url = [[[[receivedDict objectForKey:@"entities"] objectForKey:@"urls"] objectAtIndex:0] objectForKey:@"display_url"];
      }*/

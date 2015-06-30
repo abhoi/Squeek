@@ -18,6 +18,8 @@
 @property NSNumber *retweetCount;
 @property NSURL *mediaUrl;
 @property NSURL *profileImg;
+@property NSString *name;
+@property NSString *screenName;
 
 - (id) initWithData: (NSDictionary *) receivedDict;
 
