@@ -25,6 +25,7 @@
     lblTweet.text = modal.text;
     
     if (modal.mediaUrl) {
+        
         [imgPic setImageWithURLRequest:[NSURLRequest requestWithURL:modal.mediaUrl] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             imgPic.image = image;
             imgPic.contentMode = UIViewContentModeScaleAspectFill;
