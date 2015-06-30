@@ -15,7 +15,7 @@
 - (id) initWithData:(NSDictionary *)receivedDict {
     self.createdAt = [receivedDict objectForKey:@"created_at"];
     self.text = [receivedDict objectForKey:@"text"];
-    self.tweetID = [receivedDict objectForKey:@"id"];
+    self.tweetID = [receivedDict objectForKey:@"id_str"];
     self.favoriteCount = [receivedDict objectForKey:@"favorite_count"];
     self.retweetCount = [receivedDict objectForKey:@"retweet_count"];
 //    self.favorited = [receivedDict objectForKey:@"favorited"];
@@ -23,6 +23,8 @@
     if ([[receivedDict objectForKey:@"entities"] objectForKey:@"media"]) {
         self.mediaUrl = [[NSURL alloc] initWithString:[[[[receivedDict objectForKey:@"entities"] objectForKey:@"media"] objectAtIndex:0] objectForKey:@"media_url_https"]];
     }
+    self.profileImg = [[receivedDict objectForKey:@"user"] objectForKey:@"profile_image_url_https"];
+    NSLog(@"%@", self.profileImg);
     
     /*if ([[receivedDict objectForKey:@"entities"] objectForKey:@"urls"]) {
      self.display_url = [[[[receivedDict objectForKey:@"entities"] objectForKey:@"urls"] objectAtIndex:0] objectForKey:@"display_url"];
