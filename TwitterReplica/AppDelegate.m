@@ -11,7 +11,8 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import "TweetsViewController.h"
-
+#import "UserTimelineViewController.h"
+#import "Chameleon.h"
 
 @interface AppDelegate ()
 
@@ -32,9 +33,11 @@
     
     LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     TweetsViewController *tweets = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
+    //UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
     UINavigationController *objNav;
+    
     if ([[Twitter sharedInstance] session]) {
-         objNav = [[UINavigationController alloc] initWithRootViewController:tweets];
+        objNav = [[UINavigationController alloc] initWithRootViewController:tweets];
     } else {
         objNav = [[UINavigationController alloc] initWithRootViewController:login];
     }

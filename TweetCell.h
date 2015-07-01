@@ -14,12 +14,11 @@
 {
     __weak IBOutlet UIImageView *imgAuthor;
     
+    __weak IBOutlet UILabel *lblTime;
     __weak IBOutlet UIImageView *imgPic;
     __weak IBOutlet UILabel *lblPicUrl;
     __weak IBOutlet UILabel *lblTweet;
-    
-    
-    
+    __weak IBOutlet UILabel *lblAuthor;
     // constraints
     
     __weak IBOutlet NSLayoutConstraint *constraintImgPicHeight;

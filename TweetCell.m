@@ -7,6 +7,8 @@
 //
 
 #import "TweetCell.h"
+#import "Chameleon.h"
+#import <ImageIO/ImageIO.h>
 
 @implementation TweetCell
 
@@ -22,22 +24,42 @@
 
 -(void)feedTweetData:(TweetsModal *)modal
 {
+    imgAuthor.layer.backgroundColor=[[UIColor clearColor] CGColor];
+    imgAuthor.layer.cornerRadius=imgAuthor.bounds.size.width/2;
+    int verified_temp = [modal.verified intValue];
+    if (verified_temp == 1) {
+        imgAuthor.layer.borderColor = [[UIColor flatBlueColorDark] CGColor];
+    } else {
+        imgAuthor.layer.borderColor = [[UIColor clearColor] CGColor];
+    }
+    imgAuthor.layer.borderWidth = 2.0;
+    imgAuthor.clipsToBounds = YES;
+    //imgAuthor.layer.borderColor=[[UIColor blueColor] CGColor];
+    lblTime.text = modal.timeElapsed;
     lblTweet.text = modal.text;
+    lblAuthor.text = modal.combinedName;
+    [imgAuthor setImageWithURLRequest:[NSURLRequest requestWithURL:modal.profileImg] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        imgAuthor.image = image;
+        //imgAuthor.contentMode = UIViewContentModeScaleAspectFill;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        
+    }];
     
     if (modal.mediaUrl) {
-        
         [imgPic setImageWithURLRequest:[NSURLRequest requestWithURL:modal.mediaUrl] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             imgPic.image = image;
             imgPic.contentMode = UIViewContentModeScaleAspectFill;
             imgPic.clipsToBounds = YES;
+            imgPic.layer.cornerRadius = imgPic.bounds.size.width / 70;
+
+            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
+            singleTap.numberOfTapsRequired = 1;
+            singleTap.numberOfTouchesRequired = 1;
+            [imgPic setUserInteractionEnabled:YES];
+            [imgPic addGestureRecognizer:singleTap];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
-        singleTap.numberOfTapsRequired = 1;
-        singleTap.numberOfTouchesRequired = 1;
-        [imgPic setUserInteractionEnabled:YES];
-        [imgPic addGestureRecognizer:singleTap];
     }else{
         constraintImgPicHeight.constant = 0.0f;
     }

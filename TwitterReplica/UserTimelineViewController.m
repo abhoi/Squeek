@@ -1,18 +1,19 @@
 //
-//  TweetsViewController.m
+//  UserTimelineViewController.m
 //  TwitterReplica
 //
-//  Created by Vaibhav Kumar on 6/29/15.
+//  Created by Amlaan Bhoi on 6/30/15.
 //  Copyright (c) 2015 OpenSource. All rights reserved.
 //
 
-#import "TweetsViewController.h"
+#import "UserTimelineViewController.h"
 #import <TwitterKit/TwitterKit.h>
 #import "TweetCell.h"
 #import "LoginViewController.h"
 #import "Chameleon.h"
 
-@interface TweetsViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@interface UserTimelineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     __weak IBOutlet UITableView *tblTweets;
     uint totalTweets;
@@ -21,7 +22,7 @@
 
 @end
 
-@implementation TweetsViewController
+@implementation UserTimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +31,8 @@
     [self appearance];
     
     // request API
-    NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
-    NSDictionary *param = @{@"count" : @"30"};
+    NSString *url = @"https://api.twitter.com/1.1/statuses/user_timeline.json";
+    NSDictionary *param = @{@"count" : @"200"};
     
     NSError *error;
     
@@ -39,14 +40,14 @@
     
     [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         if (response) {
-        id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        totalTweets = [responseData count];
-        arrTweetsModal = [[NSMutableArray alloc]init];
-        for (NSDictionary *dictData in responseData) {
-            TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
-            [arrTweetsModal addObject:modal];
-        }
-        [tblTweets reloadData];
+            id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            totalTweets = [responseData count];
+            arrTweetsModal = [[NSMutableArray alloc]init];
+            for (NSDictionary *dictData in responseData) {
+                TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
+                [arrTweetsModal addObject:modal];
+            }
+            [tblTweets reloadData];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
             [alert show];
@@ -73,7 +74,7 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut"
                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColorDark];
     self.navigationController.navigationBar.alpha = 0.80f;
     self.navigationController.navigationBar.translucent = YES;
 }
@@ -94,12 +95,12 @@
 //-(CGFloat)getStringHeight:(NSString *)str
 //{
 //    [self.view layoutIfNeeded];
-//    
+//
 //    UILabel *lblTmp = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, tblTweets.bounds.size.width - 74, 20)];
 //    [lblTmp setLineBreakMode:NSLineBreakByWordWrapping];
 //    [lblTmp setNumberOfLines:0];
 //    [lblTmp.text size]
-//    
+//
 //    return 0;
 //}
 
@@ -120,7 +121,7 @@
     TweetsModal *modal = (TweetsModal *)[arrTweetsModal objectAtIndex:indexPath.row];
     
     [self.view layoutIfNeeded];
-
+    
     int tweetHeight = [self heightForText:modal.text font:nil withinWidth:tblTweets.bounds.size.width - 68];
     
     if (tweetHeight > 21) {
@@ -153,20 +154,7 @@
     return cell;
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
-                  willDecelerate:(BOOL)decelerate
-{
-    CGPoint offset = aScrollView.contentOffset;
-    CGRect bounds = aScrollView.bounds;
-    CGSize size = aScrollView.contentSize;
-    UIEdgeInsets inset = aScrollView.contentInset;
-    float y = offset.y + bounds.size.height - inset.bottom;
-    float h = size.height;
-    
-    float reload_distance = 50;
-    if(y > h + reload_distance) {
-        NSLog(@"load more rows");
-    }
-}
+
 
 @end
+

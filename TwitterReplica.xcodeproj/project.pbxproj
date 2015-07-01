@@ -22,6 +22,8 @@
 		CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3669D1B412B49001025F3 /* TweetsViewController.m */; };
 		CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD3669E1B412B49001025F3 /* TweetsViewController.xib */; };
 		CDD366A41B413002001025F3 /* TweetsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD366A31B413002001025F3 /* TweetsModal.m */; };
+		F71059811B42F8E00087A73F /* UserTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710597F1B42F8E00087A73F /* UserTimelineViewController.m */; };
+		F71059821B42F8E00087A73F /* UserTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71059801B42F8E00087A73F /* UserTimelineViewController.xib */; };
 		F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */; };
 		F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B4FA1B414905001B85F4 /* TweetCell.m */; };
 		F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F764B4FB1B414905001B85F4 /* TweetCell.xib */; };
@@ -84,6 +86,9 @@
 		CDD3669E1B412B49001025F3 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
 		CDD366A21B413002001025F3 /* TweetsModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsModal.h; sourceTree = "<group>"; };
 		CDD366A31B413002001025F3 /* TweetsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsModal.m; sourceTree = "<group>"; };
+		F710597E1B42F8E00087A73F /* UserTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimelineViewController.h; sourceTree = "<group>"; };
+		F710597F1B42F8E00087A73F /* UserTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimelineViewController.m; sourceTree = "<group>"; };
+		F71059801B42F8E00087A73F /* UserTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTimelineViewController.xib; sourceTree = "<group>"; };
 		F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBMediaFocusViewController.h; sourceTree = "<group>"; };
 		F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBMediaFocusViewController.m; sourceTree = "<group>"; };
 		F764B4F91B414905001B85F4 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		CDD366661B41239C001025F3 /* TwitterReplica */ = {
 			isa = PBXGroup;
 			children = (
+				F710597D1B42F8790087A73F /* UserTimelineDashboard */,
 				F764B4FF1B41521B001B85F4 /* TweetsDashboard */,
 				F764B4FE1B415212001B85F4 /* Login */,
 				CDD3666B1B41239C001025F3 /* AppDelegate.h */,
@@ -244,6 +250,16 @@
 				CDD366A31B413002001025F3 /* TweetsModal.m */,
 			);
 			name = Modal;
+			sourceTree = "<group>";
+		};
+		F710597D1B42F8790087A73F /* UserTimelineDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F710597E1B42F8E00087A73F /* UserTimelineViewController.h */,
+				F710597F1B42F8E00087A73F /* UserTimelineViewController.m */,
+				F71059801B42F8E00087A73F /* UserTimelineViewController.xib */,
+			);
+			name = UserTimelineDashboard;
 			sourceTree = "<group>";
 		};
 		F764B4F81B4148E6001B85F4 /* Cells */ = {
@@ -441,6 +457,7 @@
 			files = (
 				CDD366981B41240E001025F3 /* TwitterKitResources.bundle in Resources */,
 				CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */,
+				F71059821B42F8E00087A73F /* UserTimelineViewController.xib in Resources */,
 				CDD3667B1B41239C001025F3 /* LaunchScreen.xib in Resources */,
 				CDD3669B1B412551001025F3 /* LoginViewController.xib in Resources */,
 				CDD366781B41239C001025F3 /* Images.xcassets in Resources */,
@@ -490,6 +507,7 @@
 				F764B5351B4153E2001B85F4 /* AFURLRequestSerialization.m in Sources */,
 				F764B5341B4153E2001B85F4 /* AFURLConnectionOperation.m in Sources */,
 				F764B5371B4153E2001B85F4 /* AFURLSessionManager.m in Sources */,
+				F71059811B42F8E00087A73F /* UserTimelineViewController.m in Sources */,
 				CDD366731B41239C001025F3 /* LoginViewController.m in Sources */,
 				F764B5161B4153C9001B85F4 /* UIAlertView+AFNetworking.m in Sources */,
 				F764B5171B4153C9001B85F4 /* UIButton+AFNetworking.m in Sources */,
