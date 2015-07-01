@@ -34,15 +34,12 @@
     }
     imgAuthor.layer.borderWidth = 2.0;
     imgAuthor.clipsToBounds = YES;
-    //imgAuthor.layer.borderColor=[[UIColor blueColor] CGColor];
     lblTime.text = modal.timeElapsed;
     lblTweet.text = modal.text;
     lblAuthor.text = modal.combinedName;
     [imgAuthor setImageWithURLRequest:[NSURLRequest requestWithURL:modal.profileImg] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        
         imgAuthor.image = image;
-        
-        //imgAuthor.contentMode = UIViewContentModeScaleAspectFill;
+        imgAuthor.contentMode = UIViewContentModeScaleAspectFit;
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         
     }];

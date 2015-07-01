@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserTimelineViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MentionsViewController">
             <connections>
-                <outlet property="tblTweets" destination="mWA-0c-H72" id="eqI-9B-j8f"/>
+                <outlet property="tblTweets" destination="GIq-vu-MaH" id="8kx-Xx-exR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,21 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-0c-H72">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GIq-vu-MaH">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="n7T-WH-nYM"/>
-                        <outlet property="delegate" destination="-1" id="3D9-2N-chA"/>
+                        <outlet property="dataSource" destination="-1" id="qb0-JG-Gia"/>
+                        <outlet property="delegate" destination="-1" id="aCh-mh-Qpy"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mWA-0c-H72" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fon-H1-hD5"/>
-                <constraint firstItem="mWA-0c-H72" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GoO-Nd-HtV"/>
-                <constraint firstAttribute="trailing" secondItem="mWA-0c-H72" secondAttribute="trailing" id="c97-Gn-byi"/>
-                <constraint firstAttribute="bottom" secondItem="mWA-0c-H72" secondAttribute="bottom" id="htY-s6-CVe"/>
+                <constraint firstItem="GIq-vu-MaH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9a4-TN-Xhu"/>
+                <constraint firstAttribute="trailing" secondItem="GIq-vu-MaH" secondAttribute="trailing" id="Rvd-xZ-S96"/>
+                <constraint firstItem="GIq-vu-MaH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vdf-6E-GST"/>
+                <constraint firstAttribute="bottom" secondItem="GIq-vu-MaH" secondAttribute="bottom" id="utR-P3-r0K"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

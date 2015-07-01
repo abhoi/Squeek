@@ -44,6 +44,8 @@
 		F764B5351B4153E2001B85F4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52A1B4153E2001B85F4 /* AFURLRequestSerialization.m */; };
 		F764B5361B4153E2001B85F4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52C1B4153E2001B85F4 /* AFURLResponseSerialization.m */; };
 		F764B5371B4153E2001B85F4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B52E1B4153E2001B85F4 /* AFURLSessionManager.m */; };
+		F792D60F1B4413320038EB09 /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F792D60D1B4413320038EB09 /* MentionsViewController.m */; };
+		F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792D60E1B4413320038EB09 /* MentionsViewController.xib */; };
 		F7BD18061B41A77E008CD526 /* CINBouncyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18051B41A77E008CD526 /* CINBouncyButton.m */; };
 		F7BD18161B41A8E0008CD526 /* ChameleonStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD180D1B41A8E0008CD526 /* ChameleonStatusBar.m */; };
 		F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD180F1B41A8E0008CD526 /* NSArray+Chameleon.m */; };
@@ -130,6 +132,9 @@
 		F764B52C1B4153E2001B85F4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		F764B52D1B4153E2001B85F4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		F764B52E1B4153E2001B85F4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F792D60C1B4413320038EB09 /* MentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsViewController.h; sourceTree = "<group>"; };
+		F792D60D1B4413320038EB09 /* MentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionsViewController.m; sourceTree = "<group>"; };
+		F792D60E1B4413320038EB09 /* MentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentionsViewController.xib; sourceTree = "<group>"; };
 		F7BD18041B41A77E008CD526 /* CINBouncyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CINBouncyButton.h; sourceTree = "<group>"; };
 		F7BD18051B41A77E008CD526 /* CINBouncyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CINBouncyButton.m; sourceTree = "<group>"; };
 		F7BD180A1B41A8E0008CD526 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
@@ -193,6 +198,7 @@
 		CDD366661B41239C001025F3 /* TwitterReplica */ = {
 			isa = PBXGroup;
 			children = (
+				F792D6081B4413050038EB09 /* MentionsDashboard */,
 				F710597D1B42F8790087A73F /* UserTimelineDashboard */,
 				F764B4FF1B41521B001B85F4 /* TweetsDashboard */,
 				F764B4FE1B415212001B85F4 /* Login */,
@@ -348,6 +354,16 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		F792D6081B4413050038EB09 /* MentionsDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F792D60C1B4413320038EB09 /* MentionsViewController.h */,
+				F792D60D1B4413320038EB09 /* MentionsViewController.m */,
+				F792D60E1B4413320038EB09 /* MentionsViewController.xib */,
+			);
+			name = MentionsDashboard;
+			sourceTree = "<group>";
+		};
 		F7BD18091B41A8D7008CD526 /* Chameleon */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +478,7 @@
 				CDD3669B1B412551001025F3 /* LoginViewController.xib in Resources */,
 				CDD366781B41239C001025F3 /* Images.xcassets in Resources */,
 				F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */,
+				F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +536,7 @@
 				F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */,
 				F764B5151B4153C9001B85F4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CDD366A41B413002001025F3 /* TweetsModal.m in Sources */,
+				F792D60F1B4413320038EB09 /* MentionsViewController.m in Sources */,
 				F7BD18061B41A77E008CD526 /* CINBouncyButton.m in Sources */,
 				F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */,
 				F764B5331B4153E2001B85F4 /* AFSecurityPolicy.m in Sources */,

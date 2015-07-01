@@ -26,17 +26,23 @@
     }
     
     NSString *tempProfileImg = [[receivedDict objectForKey:@"user"] objectForKey:@"profile_image_url_https"];
-    //tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.jpg" withString:@"_bigger.jpg"];
-    if ([tempProfileImg containsString:@"_normal.jpg"]) {
+    /*if ([tempProfileImg containsString:@"_normal.jpg"]) {
         tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.jpg" withString:@"_bigger.jpg"];
     } else if ([tempProfileImg containsString:@"_normal.png"]) {
         tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.png" withString:@"_bigger.png"];
     } else if ([tempProfileImg containsString:@"_normal.jpeg"]) {
         tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.jpeg" withString:@"_bigger.jpeg"];
+    }*/
+    
+    if ([tempProfileImg containsString:@"_normal.jpg"]) {
+        tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.jpg" withString:@".jpg"];
+    } else if ([tempProfileImg containsString:@"_normal.png"]) {
+        tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.png" withString:@".png"];
+    } else if ([tempProfileImg containsString:@"_normal.jpeg"]) {
+        tempProfileImg = [tempProfileImg stringByReplacingOccurrencesOfString:@"_normal.jpeg" withString:@".jpeg"];
     }
+    
     self.profileImg = [[NSURL alloc] initWithString:tempProfileImg];
-    
-    
     
     self.name = [[receivedDict objectForKey:@"user"] objectForKey:@"name"];
     self.screenName = [[receivedDict objectForKey:@"user"] objectForKey:@"screen_name"];

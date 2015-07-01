@@ -10,6 +10,7 @@
 #import <TwitterKit/TwitterKit.h>
 #import "TweetsViewController.h"
 #import "UserTimelineViewController.h"
+#import "MentionsViewController.h"
 #import "CINBouncyButton.h"
 #import "Chameleon.h"
 
@@ -56,7 +57,9 @@
              TweetsViewController *tweets = [[TweetsViewController alloc]init];
              
              UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
-             [self.navigationController pushViewController:userTimeline animated:YES];
+             
+             MentionsViewController *mentions = [[MentionsViewController alloc] initWithNibName:@"MentionsViewController" bundle:nil];
+             [self.navigationController pushViewController:mentions animated:YES];
              [[self navigationController] setNavigationBarHidden:NO];
          } else {
              NSLog(@"error: %@", [error localizedDescription]);
