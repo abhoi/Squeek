@@ -18,6 +18,7 @@
     __weak IBOutlet UITableView *tblTweets;
     uint totalTweets;
     NSMutableArray *arrTweetsModal;
+    NSString *maxID;
 }
 
 @end
@@ -55,8 +56,35 @@
     }];
 }
 
-
-
+- (void) makeMaxIDAPIRequest {
+    NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
+    NSDictionary *param;
+    if (maxID == nil) {
+        param = @{@"count" : @"30"};
+    } else {
+        param = @{@"count" : @"30", @"max_id" : maxID};
+    }
+    NSError *error;
+    NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
+    
+    [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+        if (response) {
+            id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            totalTweets = [responseData count];
+            arrTweetsModal = [[NSMutableArray alloc]init];
+            for (NSDictionary *dictData in responseData) {
+                TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
+                [arrTweetsModal addObject:modal];
+            }
+            maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            [tblTweets setContentOffset:CGPointZero animated:YES];
+            [tblTweets reloadData];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,11 +110,10 @@
 -(void)LogOutAction
 {
     [self.navigationController popViewControllerAnimated:YES];
-    
-    if ([self.navigationController viewControllers].count == 1) {
-        LoginViewController *login = [[LoginViewController alloc]init];
-        [self.navigationController pushViewController:login animated:YES];
-    }
+    /*if ([self.navigationController viewControllers].count == 1) {
+     LoginViewController *login = [[LoginViewController alloc]init];
+     [self.navigationController pushViewController:login animated:YES];
+     }*/
     
     NSLog(@"Signing out of: %@",[[[Twitter sharedInstance] session] userName]);
     [[Twitter sharedInstance] logOut];
@@ -154,7 +181,21 @@
     return cell;
 }
 
-
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
+                  willDecelerate:(BOOL)decelerate
+{
+    CGPoint offset = aScrollView.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 50;
+    if(y > h + reload_distance) {
+        [self makeMaxIDAPIRequest];
+    }
+}
 
 @end
 

@@ -31,7 +31,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    /*LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     TweetsViewController *tweets = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
     //UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
     UINavigationController *objNav;
@@ -40,8 +40,9 @@
         objNav = [[UINavigationController alloc] initWithRootViewController:tweets];
     } else {
         objNav = [[UINavigationController alloc] initWithRootViewController:login];
-    }
-    
+    }*/
+    LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:login];
     self.window.rootViewController = objNav;
     [self.window makeKeyAndVisible];
     

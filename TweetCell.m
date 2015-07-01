@@ -28,7 +28,7 @@
     imgAuthor.layer.cornerRadius=imgAuthor.bounds.size.width/2;
     int verified_temp = [modal.verified intValue];
     if (verified_temp == 1) {
-        imgAuthor.layer.borderColor = [[UIColor flatBlueColorDark] CGColor];
+        imgAuthor.layer.borderColor = [[UIColor flatSkyBlueColorDark] CGColor];
     } else {
         imgAuthor.layer.borderColor = [[UIColor clearColor] CGColor];
     }
@@ -39,7 +39,9 @@
     lblTweet.text = modal.text;
     lblAuthor.text = modal.combinedName;
     [imgAuthor setImageWithURLRequest:[NSURLRequest requestWithURL:modal.profileImg] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        
         imgAuthor.image = image;
+        
         //imgAuthor.contentMode = UIViewContentModeScaleAspectFill;
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         
@@ -50,7 +52,7 @@
             imgPic.image = image;
             imgPic.contentMode = UIViewContentModeScaleAspectFill;
             imgPic.clipsToBounds = YES;
-            imgPic.layer.cornerRadius = imgPic.bounds.size.width / 70;
+            imgPic.layer.cornerRadius = imgPic.bounds.size.width * 0.08;
 
             UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
             singleTap.numberOfTapsRequired = 1;

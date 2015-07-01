@@ -26,8 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    [[self navigationController] setNavigationBarHidden:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    self.navigationController.navigationBar.alpha = 0.80f;
+    self.navigationController.navigationBar.translucent = YES;
     
     // Do any additional setup after loading the view, typically from a nib.
     UIImage *buttonImage = [UIImage imageNamed:@"icon_twitter"];
@@ -35,8 +36,9 @@
     twitterButton = [[CINBouncyButton alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 250)/2, 40.0f, 250.0f, 40.0f) image:buttonImage andTitle:buttonTitle];
     [twitterButton addTarget:self action:@selector(loginTwitter) forControlEvents:UIControlEventTouchUpInside];
     twitterButton.center = self.view.center;
-    [twitterButton setBackgroundColor:[UIColor flatSkyBlueColor]];
+    [twitterButton setBackgroundColor:[UIColor darkGrayColor]];
     [self.view addSubview:twitterButton];
+    
     [super viewDidLoad];
 }
 
@@ -53,9 +55,8 @@
              NSLog(@"signed in as %@", [session userName]);
              TweetsViewController *tweets = [[TweetsViewController alloc]init];
              
-             //UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
-             
-             [self.navigationController pushViewController:tweets animated:YES];
+             UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
+             [self.navigationController pushViewController:userTimeline animated:YES];
              [[self navigationController] setNavigationBarHidden:NO];
          } else {
              NSLog(@"error: %@", [error localizedDescription]);

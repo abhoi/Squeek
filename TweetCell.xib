@@ -41,7 +41,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="rGM-Cs-FbF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
