@@ -8,7 +8,6 @@
 
 #import "TweetCell.h"
 #import "Chameleon.h"
-#import <ImageIO/ImageIO.h>
 
 @implementation TweetCell
 
@@ -30,7 +29,7 @@
     if (verified_temp == 1) {
         imgAuthor.layer.borderColor = [[UIColor flatSkyBlueColorDark] CGColor];
     } else {
-        imgAuthor.layer.borderColor = [[UIColor clearColor] CGColor];
+        imgAuthor.layer.borderColor = [[UIColor flatWhiteColor] CGColor];
     }
     imgAuthor.layer.borderWidth = 2.0;
     imgAuthor.clipsToBounds = YES;
@@ -49,7 +48,7 @@
             imgPic.image = image;
             imgPic.contentMode = UIViewContentModeScaleAspectFill;
             imgPic.clipsToBounds = YES;
-            imgPic.layer.cornerRadius = imgPic.bounds.size.width * 0.08;
+            imgPic.layer.cornerRadius = imgPic.bounds.size.width * 0.02;
 
             UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
             singleTap.numberOfTapsRequired = 1;

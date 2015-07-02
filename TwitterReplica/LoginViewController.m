@@ -11,12 +11,12 @@
 #import "TweetsViewController.h"
 #import "UserTimelineViewController.h"
 #import "MentionsViewController.h"
+#import "ProfileViewController.h"
 #import "CINBouncyButton.h"
 #import "Chameleon.h"
-
+#import "AppDelegate.h"
 @interface LoginViewController ()
 {
-    __weak IBOutlet UIButton *btnLogin;
     CINBouncyButton *twitterButton;
 }
 
@@ -53,16 +53,26 @@
     [[Twitter sharedInstance] logInWithCompletion:^
      (TWTRSession *session, NSError *error) {
          if (session) {
-             NSLog(@"signed in as %@", [session userName]);
-             TweetsViewController *tweets = [[TweetsViewController alloc]init];
+             [USER_DEFAULT setBool:YES forKey:@"loggedIn"];
+             AppDelegate *appDelegate = [AppDelegate getDelegate];
+             [appDelegate dashboard];
              
-             UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
-             
-             MentionsViewController *mentions = [[MentionsViewController alloc] initWithNibName:@"MentionsViewController" bundle:nil];
-             [self.navigationController pushViewController:mentions animated:YES];
-             [[self navigationController] setNavigationBarHidden:NO];
+             //             NSLog(@"signed in as %@", [session userName]);
+             //             TweetsViewController *tweets = [[TweetsViewController alloc]init];
+             //
+             //             UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
+             //
+             //             MentionsViewController *mentions = [[MentionsViewController alloc] initWithNibName:@"MentionsViewController" bundle:nil];
+             //
+             //             ProfileViewController *profile = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+             //
+             //             [self.navigationController pushViewController:tweets
+             //                                                  animated:YES];
+             //             [[self navigationController] setNavigationBarHidden:NO];
          } else {
-             NSLog(@"error: %@", [error localizedDescription]);
+             [USER_DEFAULT setBool:NO forKey:@"loggedIn"];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+             [alert show];
          }
      }];
 }

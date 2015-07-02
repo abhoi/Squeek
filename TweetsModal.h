@@ -26,6 +26,4 @@
 
 - (id) initWithData: (NSDictionary *) receivedDict;
 
-
-
 @end

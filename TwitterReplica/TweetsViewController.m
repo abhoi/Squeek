@@ -11,16 +11,21 @@
 #import "TweetCell.h"
 #import "LoginViewController.h"
 #import "Chameleon.h"
+#import "MLAlertView.h"
+#import "TweetsDetailsViewController.h"
+
 
 @interface TweetsViewController ()<UITableViewDataSource,UITableViewDelegate, UITabBarControllerDelegate>
 {
     __weak IBOutlet UITableView *tblTweets;
-    uint totalTweets;
-    NSMutableArray *arrTweetsModal;
-    NSString *sinceID;
-    NSString *maxID;
+    BOOL sinceIDRequestToggle;
     int counter;
 }
+@property NSMutableArray *arrTweetsModal;
+@property uint totalTweets;
+@property NSString *sinceID;
+@property NSString *maxID;
+
 @end
 
 @implementation TweetsViewController
@@ -28,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    _totalTweets = 0;
+    _arrTweetsModal = [[NSMutableArray alloc]init];
     [self appearance];
     [self makeAPIRequest];
 }
@@ -37,31 +43,51 @@
     // request API
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
-    if (sinceID == nil) {
+    if (_sinceID == nil) {
         param = @{@"count" : @"30"};
+        sinceIDRequestToggle = NO;
     } else {
-        param = @{@"count" : @"30", @"since_id" : sinceID};
+        param = @{@"count" : @"30", @"since_id" : _sinceID};
+        sinceIDRequestToggle = YES;
     }
     NSError *error;
-    counter = 1;
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
     
     [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         if (response) {
             id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            totalTweets = [responseData count];
-            arrTweetsModal = [[NSMutableArray alloc]init];
-            for (NSDictionary *dictData in responseData) {
-                if (counter == 1) {
-                    sinceID = [dictData objectForKey:@"id_str"];
-                    counter++;
-                }
-                TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
-                [arrTweetsModal addObject:modal];
+            _totalTweets += [responseData count];
+            if ([responseData count] == 0) {
+                NSLog(@"NO new tweets");
+                return;
             }
+            if (sinceIDRequestToggle == NO) {
+                counter = 1;
+                for (NSDictionary *dictData in responseData) {
+                    if (counter == 1) {
+                        _sinceID = [dictData objectForKey:@"id_str"];
+                        counter++;
+                    }
+                    TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
+                    [_arrTweetsModal addObject:modal];
+                }
+            } else {
+                counter = [responseData count];
+                for (NSDictionary *dictData in [responseData reverseObjectEnumerator]) {
+                    if (counter == [responseData count]) {
+                        _sinceID = [dictData objectForKey:@"id_str"];
+                        counter--;
+                    }
+                    TweetsModal *modal = [[TweetsModal alloc] initWithData:dictData];
+                    [_arrTweetsModal insertObject:modal atIndex:0];
+                }
+            }
+            //_maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            TweetsModal *tmp = (TweetsModal *)[_arrTweetsModal objectAtIndex:[_arrTweetsModal count] - 1 ];
+            _maxID = [NSString stringWithFormat:@"%@", tmp.tweetID];
             [tblTweets reloadData];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
         }
     }];
@@ -70,10 +96,10 @@
 - (void) makeMaxIDAPIRequest {
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
-    if (maxID == nil) {
+    if (_maxID == nil) {
         param = @{@"count" : @"30"};
     } else {
-        param = @{@"count" : @"30", @"max_id" : maxID};
+        param = @{@"count" : @"30", @"max_id" : _maxID};
     }
     NSError *error;
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
@@ -81,17 +107,15 @@
     [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         if (response) {
             id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            totalTweets = [responseData count];
-            arrTweetsModal = [[NSMutableArray alloc]init];
+            _totalTweets += [responseData count];
             for (NSDictionary *dictData in responseData) {
                 TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
-                [arrTweetsModal addObject:modal];
+                [_arrTweetsModal addObject:modal];
             }
-            maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
-            //[tblTweets setContentOffset:CGPointZero animated:YES];
+            _maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
             [tblTweets reloadData];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
         }
     }];
@@ -106,9 +130,30 @@
 -(void)appearance
 {
     [tblTweets setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [tblTweets setAllowsSelection:NO];
+    //[tblTweets setAllowsSelection:NO];
     
-    NSLog(@"%lu",(unsigned long)[self.navigationController.viewControllers count]);
+    
+    self.title = NSLocalizedString(@"Timeline", nil);
+    
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    
+    //[revealController panGestureRecognizer];
+    [revealController tapGestureRecognizer];
+    
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+//    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+//                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
+//    
+//    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
+
+    
+    
+    /*NSLog(@"%lu",(unsigned long)[self.navigationController.viewControllers count]);
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut"
                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
@@ -117,7 +162,7 @@
     self.navigationItem.leftBarButtonItem = refreshButton;
     self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
     self.navigationController.navigationBar.alpha = 0.80f;
-    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.translucent = YES;*/
 }
 
 -(void)LogOutAction
@@ -158,7 +203,7 @@
 {
     int totalHeight = 215;
     
-    TweetsModal *modal = (TweetsModal *)[arrTweetsModal objectAtIndex:indexPath.row];
+    TweetsModal *modal = (TweetsModal *)[_arrTweetsModal objectAtIndex:indexPath.row];
     
     [self.view layoutIfNeeded];
 
@@ -168,7 +213,6 @@
         totalHeight += tweetHeight;
     }
     
-    
     if (modal.mediaUrl) {
         return totalHeight;
     }
@@ -177,7 +221,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return totalTweets;
+    return _totalTweets;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -190,8 +234,15 @@
         cell =  [[[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    [cell feedTweetData:(TweetsModal *)[arrTweetsModal objectAtIndex:indexPath.row]];
+    [cell feedTweetData:(TweetsModal *)[_arrTweetsModal objectAtIndex:indexPath.row]];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TweetsDetailsViewController *tweetsDetails = [[TweetsDetailsViewController alloc]initWithNibName:@"TweetsDetailsViewController" bundle:nil];
+    [tweetsDetails setTweetRef:(TweetsModal *)[_arrTweetsModal objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:tweetsDetails animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
@@ -206,6 +257,7 @@
     
     float reload_distance = 50;
     if(y > h + reload_distance) {
+        NSLog(@"Reached end of table");
         [self makeMaxIDAPIRequest];
     }
 }

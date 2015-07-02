@@ -13,8 +13,10 @@
 #import "TweetsViewController.h"
 #import "UserTimelineViewController.h"
 #import "Chameleon.h"
+#import "RearViewController.h"
+#import "ProfileViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <SWRevealViewControllerDelegate>
 
 @end
 
@@ -22,31 +24,46 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    
     [Fabric with:@[TwitterKit]];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     self.window.backgroundColor = [UIColor whiteColor];
     
-    /*LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-    TweetsViewController *tweets = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
-    //UserTimelineViewController *userTimeline = [[UserTimelineViewController alloc] initWithNibName:@"UserTimelineViewController" bundle:nil];
-    UINavigationController *objNav;
-    
-    if ([[Twitter sharedInstance] session]) {
-        objNav = [[UINavigationController alloc] initWithRootViewController:tweets];
-    } else {
-        objNav = [[UINavigationController alloc] initWithRootViewController:login];
-    }*/
-    LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:login];
-    self.window.rootViewController = objNav;
+    if ([USER_DEFAULT boolForKey:@"loggedIn"]) { // logged in user
+        [self dashboard];
+    }else{ // first time user
+        [self login];
+    }
     [self.window makeKeyAndVisible];
-    
     return YES;
+}
+
+-(void)login
+{
+    LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    self.window.rootViewController = login;
+}
+
+- (void)dashboard {
+
+    RearViewController *rearViewController = [[RearViewController alloc] initWithNibName:@"RearViewController" bundle:nil];
+    TweetsViewController *tweetsViewController = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
+    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
+    
+    frontNavigationController.navigationBar.tintColor = [UIColor flatBlackColor];
+    rearNavigationController.navigationBar.tintColor = [UIColor flatBlackColor];
+    
+    SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
+    revealController.delegate = self;
+    revealController.frontViewShadowColor = [UIColor flatBlackColor];
+    self.viewController = revealController;
+    self.window.rootViewController = self.viewController;
+}
+
++(AppDelegate *)getDelegate
+{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
