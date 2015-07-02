@@ -22,8 +22,7 @@
 		CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3669D1B412B49001025F3 /* TweetsViewController.m */; };
 		CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD3669E1B412B49001025F3 /* TweetsViewController.xib */; };
 		CDD366A41B413002001025F3 /* TweetsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD366A31B413002001025F3 /* TweetsModal.m */; };
-		F71059811B42F8E00087A73F /* UserTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710597F1B42F8E00087A73F /* UserTimelineViewController.m */; };
-		F71059821B42F8E00087A73F /* UserTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71059801B42F8E00087A73F /* UserTimelineViewController.xib */; };
+		F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = F72ACC321B45C2F200D2EF85 /* default_banner.png */; };
 		F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */; };
 		F75292D51B441B6500DBAC42 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F75292D41B441B6500DBAC42 /* cover.png */; };
 		F75292D91B441BE800DBAC42 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292D71B441BE800DBAC42 /* ProfileViewController.m */; };
@@ -31,12 +30,13 @@
 		F75292DD1B44237000DBAC42 /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292DC1B44237000DBAC42 /* MBTwitterScroll.m */; };
 		F75292E01B44253C00DBAC42 /* UIScrollView+TwitterCover.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */; };
 		F75292E21B44256E00DBAC42 /* chandler.gif in Resources */ = {isa = PBXBuildFile; fileRef = F75292E11B44256E00DBAC42 /* chandler.gif */; };
+		F763C7051B45A55C00257A56 /* UserTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F763C7031B45A55C00257A56 /* UserTimelineViewController.m */; };
+		F763C7061B45A55C00257A56 /* UserTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F763C7041B45A55C00257A56 /* UserTimelineViewController.xib */; };
 		F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B4FA1B414905001B85F4 /* TweetCell.m */; };
 		F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F764B4FB1B414905001B85F4 /* TweetCell.xib */; };
 		F792D60F1B4413320038EB09 /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F792D60D1B4413320038EB09 /* MentionsViewController.m */; };
 		F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792D60E1B4413320038EB09 /* MentionsViewController.xib */; };
 		F79EBD8C1B44EDFB002A8EAA /* UserProfileModal.m in Sources */ = {isa = PBXBuildFile; fileRef = F79EBD8B1B44EDFB002A8EAA /* UserProfileModal.m */; };
-		F7AEB8491B442E93002628CD /* MLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB8481B442E93002628CD /* MLAlertView.m */; };
 		F7B369D61B4545030019DCCA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B369D51B4545030019DCCA /* SWRevealViewController.m */; };
 		F7B36A571B45481C0019DCCA /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B36A471B45481C0019DCCA /* AFNetworkActivityIndicatorManager.m */; };
 		F7B36A581B45481C0019DCCA /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B36A491B45481C0019DCCA /* UIActivityIndicatorView+AFNetworking.m */; };
@@ -103,9 +103,7 @@
 		CDD3669E1B412B49001025F3 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
 		CDD366A21B413002001025F3 /* TweetsModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsModal.h; sourceTree = "<group>"; };
 		CDD366A31B413002001025F3 /* TweetsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsModal.m; sourceTree = "<group>"; };
-		F710597E1B42F8E00087A73F /* UserTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimelineViewController.h; sourceTree = "<group>"; };
-		F710597F1B42F8E00087A73F /* UserTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimelineViewController.m; sourceTree = "<group>"; };
-		F71059801B42F8E00087A73F /* UserTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTimelineViewController.xib; sourceTree = "<group>"; };
+		F72ACC321B45C2F200D2EF85 /* default_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_banner.png; sourceTree = "<group>"; };
 		F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBMediaFocusViewController.h; sourceTree = "<group>"; };
 		F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBMediaFocusViewController.m; sourceTree = "<group>"; };
 		F75292D41B441B6500DBAC42 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
@@ -117,6 +115,9 @@
 		F75292DE1B44253C00DBAC42 /* UIScrollView+TwitterCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TwitterCover.h"; sourceTree = "<group>"; };
 		F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TwitterCover.m"; sourceTree = "<group>"; };
 		F75292E11B44256E00DBAC42 /* chandler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chandler.gif; sourceTree = "<group>"; };
+		F763C7021B45A55C00257A56 /* UserTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimelineViewController.h; sourceTree = "<group>"; };
+		F763C7031B45A55C00257A56 /* UserTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimelineViewController.m; sourceTree = "<group>"; };
+		F763C7041B45A55C00257A56 /* UserTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTimelineViewController.xib; sourceTree = "<group>"; };
 		F764B4F91B414905001B85F4 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		F764B4FA1B414905001B85F4 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		F764B4FB1B414905001B85F4 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
@@ -125,8 +126,6 @@
 		F792D60E1B4413320038EB09 /* MentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentionsViewController.xib; sourceTree = "<group>"; };
 		F79EBD8A1B44EDFB002A8EAA /* UserProfileModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileModal.h; sourceTree = "<group>"; };
 		F79EBD8B1B44EDFB002A8EAA /* UserProfileModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileModal.m; sourceTree = "<group>"; };
-		F7AEB8471B442E93002628CD /* MLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertView.h; sourceTree = "<group>"; };
-		F7AEB8481B442E93002628CD /* MLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAlertView.m; sourceTree = "<group>"; };
 		F7B369D41B4545030019DCCA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F7B369D51B4545030019DCCA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F7B36A461B45481C0019DCCA /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
@@ -240,8 +239,8 @@
 			children = (
 				F7B36AC11B454AA80019DCCA /* RearViewController */,
 				F75292D31B441AB100DBAC42 /* ProfileViewDashboard */,
+				F763C7071B45A56400257A56 /* UserTimelineDashboard */,
 				F792D6081B4413050038EB09 /* MentionsDashboard */,
-				F710597D1B42F8790087A73F /* UserTimelineDashboard */,
 				F764B4FF1B41521B001B85F4 /* TweetsDashboard */,
 				F764B4FE1B415212001B85F4 /* Login */,
 				CDD3666B1B41239C001025F3 /* AppDelegate.h */,
@@ -302,16 +301,6 @@
 			name = Modal;
 			sourceTree = "<group>";
 		};
-		F710597D1B42F8790087A73F /* UserTimelineDashboard */ = {
-			isa = PBXGroup;
-			children = (
-				F710597E1B42F8E00087A73F /* UserTimelineViewController.h */,
-				F710597F1B42F8E00087A73F /* UserTimelineViewController.m */,
-				F71059801B42F8E00087A73F /* UserTimelineViewController.xib */,
-			);
-			name = UserTimelineDashboard;
-			sourceTree = "<group>";
-		};
 		F75292D31B441AB100DBAC42 /* ProfileViewDashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +309,17 @@
 				F75292D81B441BE800DBAC42 /* ProfileViewController.xib */,
 			);
 			name = ProfileViewDashboard;
+			sourceTree = "<group>";
+		};
+		F763C7071B45A56400257A56 /* UserTimelineDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F763C7021B45A55C00257A56 /* UserTimelineViewController.h */,
+				F763C7031B45A55C00257A56 /* UserTimelineViewController.m */,
+				F763C7041B45A55C00257A56 /* UserTimelineViewController.xib */,
+			);
+			name = UserTimelineDashboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F764B4F81B4148E6001B85F4 /* Cells */ = {
@@ -358,10 +358,8 @@
 		F764B5001B41528A001B85F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				F7AEB8471B442E93002628CD /* MLAlertView.h */,
 				F7B369D41B4545030019DCCA /* SWRevealViewController.h */,
 				F7B369D51B4545030019DCCA /* SWRevealViewController.m */,
-				F7AEB8481B442E93002628CD /* MLAlertView.m */,
 				F75292DE1B44253C00DBAC42 /* UIScrollView+TwitterCover.h */,
 				F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */,
 				F75292DB1B44237000DBAC42 /* MBTwitterScroll.h */,
@@ -473,6 +471,7 @@
 				F75292D41B441B6500DBAC42 /* cover.png */,
 				F7B36AC31B454C680019DCCA /* reveal-icon.png */,
 				F7B36AC41B454C680019DCCA /* reveal-icon@2x.png */,
+				F72ACC321B45C2F200D2EF85 /* default_banner.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -561,7 +560,6 @@
 				CDD366981B41240E001025F3 /* TwitterKitResources.bundle in Resources */,
 				F7B36ACF1B45598D0019DCCA /* TweetsDetailsViewController.xib in Resources */,
 				CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */,
-				F71059821B42F8E00087A73F /* UserTimelineViewController.xib in Resources */,
 				CDD3667B1B41239C001025F3 /* LaunchScreen.xib in Resources */,
 				F7B36AC51B454C680019DCCA /* reveal-icon.png in Resources */,
 				F7B36ABB1B454A9B0019DCCA /* RearViewController.xib in Resources */,
@@ -572,7 +570,9 @@
 				F7B36AC61B454C680019DCCA /* reveal-icon@2x.png in Resources */,
 				F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */,
 				F75292DA1B441BE800DBAC42 /* ProfileViewController.xib in Resources */,
+				F763C7061B45A55C00257A56 /* UserTimelineViewController.xib in Resources */,
 				F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */,
+				F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,11 +622,11 @@
 				F7B36A5C1B45481C0019DCCA /* UIProgressView+AFNetworking.m in Sources */,
 				CDD3666D1B41239C001025F3 /* AppDelegate.m in Sources */,
 				F7B36A741B4548310019DCCA /* AFHTTPSessionManager.m in Sources */,
-				F71059811B42F8E00087A73F /* UserTimelineViewController.m in Sources */,
 				F7B36A751B4548310019DCCA /* AFNetworkReachabilityManager.m in Sources */,
 				F75292E01B44253C00DBAC42 /* UIScrollView+TwitterCover.m in Sources */,
 				F7B36A771B4548310019DCCA /* AFURLConnectionOperation.m in Sources */,
 				CDD366731B41239C001025F3 /* LoginViewController.m in Sources */,
+				F763C7051B45A55C00257A56 /* UserTimelineViewController.m in Sources */,
 				F7BD181A1B41A8E0008CD526 /* UIViewController+Chameleon.m in Sources */,
 				CDD3666A1B41239C001025F3 /* main.m in Sources */,
 				F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */,
@@ -643,7 +643,6 @@
 				F7B36A781B4548310019DCCA /* AFURLRequestSerialization.m in Sources */,
 				F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */,
 				F7B36A571B45481C0019DCCA /* AFNetworkActivityIndicatorManager.m in Sources */,
-				F7AEB8491B442E93002628CD /* MLAlertView.m in Sources */,
 				F7B36A5E1B45481C0019DCCA /* UIWebView+AFNetworking.m in Sources */,
 				F7BD18191B41A8E0008CD526 /* UIColor+CIELAB.m in Sources */,
 				F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */,

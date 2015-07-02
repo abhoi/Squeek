@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TweetsModal.h"
+#import "SWRevealViewController.h"
 
 @interface MentionsViewController : UIViewController
 

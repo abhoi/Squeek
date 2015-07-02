@@ -11,7 +11,6 @@
 #import "TweetCell.h"
 #import "LoginViewController.h"
 #import "Chameleon.h"
-#import "MLAlertView.h"
 #import "TweetsDetailsViewController.h"
 
 
@@ -44,10 +43,10 @@
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
     if (_sinceID == nil) {
-        param = @{@"count" : @"30"};
+        param = @{@"count" : @"10"};
         sinceIDRequestToggle = NO;
     } else {
-        param = @{@"count" : @"30", @"since_id" : _sinceID};
+        param = @{@"count" : @"10", @"since_id" : _sinceID};
         sinceIDRequestToggle = YES;
     }
     NSError *error;
@@ -94,12 +93,13 @@
 }
 
 - (void) makeMaxIDAPIRequest {
+    [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
     if (_maxID == nil) {
-        param = @{@"count" : @"30"};
+        param = @{@"count" : @"10"};
     } else {
-        param = @{@"count" : @"30", @"max_id" : _maxID};
+        param = @{@"count" : @"10", @"max_id" : _maxID};
     }
     NSError *error;
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
@@ -119,6 +119,7 @@
             [alert show];
         }
     }];
+    _totalTweets--;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -146,6 +147,8 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
+    /*UIBarButtonItem *logoutItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
+    self.navigationItem.rightBarButtonItem = logoutItem;*/
 //    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
 //                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
 //    
@@ -243,6 +246,7 @@
     TweetsDetailsViewController *tweetsDetails = [[TweetsDetailsViewController alloc]initWithNibName:@"TweetsDetailsViewController" bundle:nil];
     [tweetsDetails setTweetRef:(TweetsModal *)[_arrTweetsModal objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:tweetsDetails animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView

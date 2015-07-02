@@ -33,7 +33,9 @@
     }
     
     self.userProfileImg = [[NSURL alloc] initWithString:tempUserProfileImg];
-    self.userBannerImg = [[NSURL alloc] initWithString:[receivedDict objectForKey:@"profile_banner_url"]];
+    if ([receivedDict objectForKey:@"profile_banner_url"] != nil) {
+        self.userBannerImg = [[NSURL alloc] initWithString:[receivedDict objectForKey:@"profile_banner_url"]];
+    }
     return self;
 }
 

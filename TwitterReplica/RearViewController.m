@@ -25,6 +25,11 @@
 
 @implementation RearViewController
 
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    NSLog(@"willmovetoparentviewcontroller");
+    [self makeAPIRequest];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -32,6 +37,7 @@
     [self.view bringSubviewToFront:_imgProfileView];
     [tblInfo setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [tblInfo setEditing:NO];
+    tblInfo.allowsSelection = NO;
     [self makeAPIRequest];
 }
 
@@ -44,6 +50,7 @@
     NSString *url = @"https://api.twitter.com/1.1/users/show.json";
     NSDictionary *param = @{@"user_id" : [[[Twitter sharedInstance] session] userID]};
     NSError *error;
+
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
     [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         if (response) {
@@ -52,7 +59,12 @@
             _currentUser = user;
             _lblScreenName.text = _currentUser.screenName;
             UIImage *userProfileTemp = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userProfileImg]];
-            UIImage *userBannerTemp = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
+            UIImage *userBannerTemp;
+            if (_currentUser.userBannerImg == nil) {
+                userBannerTemp = [UIImage imageNamed:@"default_banner"];
+            } else {
+                userBannerTemp = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
+            }
             _imgBannerView.image = userBannerTemp;
             _imgBannerView.contentMode = UIViewContentModeScaleAspectFill;
             _imgBannerView.clipsToBounds = YES;
@@ -79,41 +91,29 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"Cell";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     cell.backgroundColor = [UIColor flatBlackColorDark];
     cell.textLabel.textColor = [UIColor flatWhiteColor];
     NSString *temp;
     switch (indexPath.row) {
         case 0:
-            if (_currentUser.statusesCount == nil) {
-                temp = [[NSString alloc] initWithFormat:@"Tweets     "];
-            } else {
-                temp = [[NSString alloc] initWithFormat:@"Tweets     %@", _currentUser.statusesCount];
-            }
+            temp = [[NSString alloc] initWithFormat:@"Tweets"];
+            cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.statusesCount];
             cell.textLabel.text = temp;
             break;
         case 1:
-            if (_currentUser.followersCount == nil) {
-                temp = [[NSString alloc] initWithFormat:@"Followers  "];
-            } else {
-                temp = [[NSString alloc] initWithFormat:@"Followers  %@", _currentUser.followersCount];
-            }
+            temp = [[NSString alloc] initWithFormat:@"Followers"];
+            cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.followersCount];
             cell.textLabel.text = temp;
             break;
         case 2:
-            if (_currentUser.followingCount == nil) {
-                temp = [[NSString alloc] initWithFormat:@"Following  "];
-            } else {
-                temp = [[NSString alloc] initWithFormat:@"Following  %@", _currentUser.followingCount];
-            }
+            temp = [[NSString alloc] initWithFormat:@"Following"];
+            cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.followingCount];
             cell.textLabel.text = temp;
             break;
         case 3:
-            if (_currentUser.listedCount == nil) {
-                temp = [[NSString alloc] initWithFormat:@"Listed       "];
-            } else {
-                temp = [[NSString alloc] initWithFormat:@"Listed          %@", _currentUser.listedCount];
-            }
+            temp = [[NSString alloc] initWithFormat:@"Listed"];
+            cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.listedCount];
             cell.textLabel.text = temp;
             break;
         default:

@@ -48,16 +48,8 @@
         
         }];
     } else {
-        
+        return;
     }
-}
-
-- (CGFloat)heightForText:(NSString*)text font:(UIFont*)font withinWidth:(CGFloat)width {
-    font = [UIFont systemFontOfSize:16];
-    CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:font}];
-    CGFloat area = size.height * size.width;
-    CGFloat height = roundf(area / width);
-    return ceilf(height / font.lineHeight) * font.lineHeight;
 }
 
 - (void)didReceiveMemoryWarning {

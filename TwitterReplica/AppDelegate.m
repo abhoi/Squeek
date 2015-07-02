@@ -15,6 +15,7 @@
 #import "Chameleon.h"
 #import "RearViewController.h"
 #import "ProfileViewController.h"
+#import "MentionsViewController.h"
 
 @interface AppDelegate () <SWRevealViewControllerDelegate>
 
@@ -27,7 +28,6 @@
     [Fabric with:@[TwitterKit]];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    
     if ([USER_DEFAULT boolForKey:@"loggedIn"]) { // logged in user
         [self dashboard];
     }else{ // first time user
@@ -47,7 +47,9 @@
 
     RearViewController *rearViewController = [[RearViewController alloc] initWithNibName:@"RearViewController" bundle:nil];
     TweetsViewController *tweetsViewController = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
-    
+    UserTimelineViewController *userViewController = [[UserTimelineViewController alloc]initWithNibName:@"UserTimelineViewController" bundle:nil];
+    MentionsViewController *mentionsViewController = [[MentionsViewController alloc]initWithNibName:@"MentionsViewController" bundle:nil];
+    ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
     UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
     
