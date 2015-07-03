@@ -12,7 +12,8 @@
 #import "LoginViewController.h"
 #import "Chameleon.h"
 #import "TweetsDetailsViewController.h"
-
+#import "WBNoticeView.h"
+#import "WBStickyNoticeView.h"
 
 @interface TweetsViewController ()<UITableViewDataSource,UITableViewDelegate, UITabBarControllerDelegate>
 {
@@ -107,10 +108,9 @@
 }
 
 - (void) makeMaxIDAPIRequest {
-    /*if ([_arrTweetsModal count] != 0) {
+    if ([_arrTweetsModal count] > 0) {
         [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
-    }*/
-    [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
+    }
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
     if (_maxID == nil) {
@@ -129,14 +129,18 @@
                 TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
                 [_arrTweetsModal addObject:modal];
             }
-            _maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            if ([_arrTweetsModal count] > 0) {
+                _maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            }
             [tblTweets reloadData];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
         }
     }];
-    _totalTweets--;
+    if ([_arrTweetsModal count] > 0) {
+        _totalTweets--;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -161,7 +165,12 @@
                                                                          style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    
+    /*
+    UIBarButtonItem *composeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(composeTweet)];
+    self.navigationItem.rightBarButtonItem = composeButtonItem;
+    */
+    UIBarButtonItem *composeButtonItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeTweet)];
+    self.navigationItem.rightBarButtonItem = composeButtonItem2;
     /*UIBarButtonItem *logoutItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
     self.navigationItem.rightBarButtonItem = logoutItem;*/
 //    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
@@ -185,6 +194,11 @@
     /*self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
     self.navigationController.navigationBar.alpha = 0.80f;
     self.navigationController.navigationBar.translucent = YES;*/
+}
+
+- (void) composeTweet {
+    SLComposeViewController *composeV = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [self presentViewController:composeV animated:YES completion:nil];
 }
 
 -(void)LogOutAction
@@ -257,6 +271,9 @@
     }
     
     [cell feedTweetData:(TweetsModal *)[_arrTweetsModal objectAtIndex:indexPath.row]];
+    UIView *selectionColor = [[UIView alloc] init];
+    selectionColor.backgroundColor = [UIColor flatBlackColor];
+    cell.selectedBackgroundView = selectionColor;
     return cell;
 }
 

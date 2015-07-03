@@ -45,7 +45,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     
     // Header
-    self.header = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 107)];
+    //self.header = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 107)];
+    self.header = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, 32, self.frame.size.width, 200)];
     [self addSubview:self.header];
     self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.header.frame.size.height - 5, self.frame.size.width, 25)];
     self.headerLabel.textAlignment = NSTextAlignmentCenter;
@@ -61,7 +62,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
         self.tableView.showsVerticalScrollIndicator = NO;
         
         // TableView Header
-        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.header.frame.size.height + 100)];
+        //self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.header.frame.size.height + 100)];
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.header.frame.size.height + 5)];
         [self addSubview:self.tableView];
         
     } else {
@@ -92,7 +94,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     NSString *tempSubtitleString = [[NSString alloc] initWithFormat:@"@%@", subtitleString];
     subtitleLabel.text = tempSubtitleString;
     subtitleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
-    subtitleLabel.textColor = [UIColor flatGrayColor];
+    subtitleLabel.textColor = [UIColor flatWhiteColor];
     
     UIButton * headerButton;
     if (buttonTitle.length > 0) {
@@ -100,7 +102,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
         [headerButton setTitle:buttonTitle forState:UIControlStateNormal];
         [headerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         headerButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
-        headerButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        headerButton.layer.borderColor = [UIColor flatWhiteColor].CGColor;
         headerButton.layer.borderWidth = 1;
         headerButton.layer.cornerRadius = 8;
         [headerButton addTarget:self action:@selector(recievedMBTwitterScrollButtonClicked) forControlEvents:UIControlEventTouchUpInside];

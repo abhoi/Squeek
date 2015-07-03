@@ -22,16 +22,28 @@
 		CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3669D1B412B49001025F3 /* TweetsViewController.m */; };
 		CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD3669E1B412B49001025F3 /* TweetsViewController.xib */; };
 		CDD366A41B413002001025F3 /* TweetsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD366A31B413002001025F3 /* TweetsModal.m */; };
+		F70D084A1B4694DC0063ED0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F70D08491B4694DC0063ED0B /* QuartzCore.framework */; };
+		F70D08611B4695140063ED0B /* NoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F70D084B1B4695140063ED0B /* NoticeView.bundle */; };
+		F70D08621B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D084D1B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.m */; };
+		F70D08631B4695140063ED0B /* UILabel+WBExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D084F1B4695140063ED0B /* UILabel+WBExtensions.m */; };
+		F70D08641B4695140063ED0B /* WBBlueGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08511B4695140063ED0B /* WBBlueGradientView.m */; };
+		F70D08651B4695140063ED0B /* WBErrorNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08531B4695140063ED0B /* WBErrorNoticeView.m */; };
+		F70D08661B4695140063ED0B /* WBGrayGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08551B4695140063ED0B /* WBGrayGradientView.m */; };
+		F70D08671B4695140063ED0B /* WBNoticeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08571B4695140063ED0B /* WBNoticeOperation.m */; };
+		F70D08681B4695140063ED0B /* WBNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08591B4695140063ED0B /* WBNoticeView.m */; };
+		F70D08691B4695140063ED0B /* WBRedGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D085C1B4695140063ED0B /* WBRedGradientView.m */; };
+		F70D086A1B4695140063ED0B /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D085E1B4695140063ED0B /* WBStickyNoticeView.m */; };
+		F70D086B1B4695140063ED0B /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70D08601B4695140063ED0B /* WBSuccessNoticeView.m */; };
 		F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = F72ACC321B45C2F200D2EF85 /* default_banner.png */; };
 		F72ACC371B45C6BB00D2EF85 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72ACC351B45C6BB00D2EF85 /* SearchViewController.m */; };
 		F72ACC381B45C6BB00D2EF85 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72ACC361B45C6BB00D2EF85 /* SearchViewController.xib */; };
 		F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */; };
-		F75292D51B441B6500DBAC42 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F75292D41B441B6500DBAC42 /* cover.png */; };
+		F73FCE1E1B467FE50004F977 /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = F73FCE1D1B467FE50004F977 /* launch_screen.png */; };
+		F73FCE241B4680E30004F977 /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F73FCE231B4680E30004F977 /* login_bg.png */; };
 		F75292D91B441BE800DBAC42 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292D71B441BE800DBAC42 /* ProfileViewController.m */; };
 		F75292DA1B441BE800DBAC42 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F75292D81B441BE800DBAC42 /* ProfileViewController.xib */; };
 		F75292DD1B44237000DBAC42 /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292DC1B44237000DBAC42 /* MBTwitterScroll.m */; };
 		F75292E01B44253C00DBAC42 /* UIScrollView+TwitterCover.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */; };
-		F75292E21B44256E00DBAC42 /* chandler.gif in Resources */ = {isa = PBXBuildFile; fileRef = F75292E11B44256E00DBAC42 /* chandler.gif */; };
 		F763C7051B45A55C00257A56 /* UserTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F763C7031B45A55C00257A56 /* UserTimelineViewController.m */; };
 		F763C7061B45A55C00257A56 /* UserTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F763C7041B45A55C00257A56 /* UserTimelineViewController.xib */; };
 		F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F764B4FA1B414905001B85F4 /* TweetCell.m */; };
@@ -69,6 +81,7 @@
 		F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18111B41A8E0008CD526 /* UIColor+Chameleon.m */; };
 		F7BD18191B41A8E0008CD526 /* UIColor+CIELAB.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18131B41A8E0008CD526 /* UIColor+CIELAB.m */; };
 		F7BD181A1B41A8E0008CD526 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD18151B41A8E0008CD526 /* UIViewController+Chameleon.m */; };
+		F7F7DD111B469C6D00A6A4F9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F7DD101B469C6D00A6A4F9 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,13 +118,37 @@
 		CDD3669E1B412B49001025F3 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
 		CDD366A21B413002001025F3 /* TweetsModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsModal.h; sourceTree = "<group>"; };
 		CDD366A31B413002001025F3 /* TweetsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsModal.m; sourceTree = "<group>"; };
+		F70D08491B4694DC0063ED0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F70D084B1B4695140063ED0B /* NoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NoticeView.bundle; path = WBNoticeView/NoticeView.bundle; sourceTree = "<group>"; };
+		F70D084C1B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSOperationQueue+WBNoticeExtensions.h"; path = "WBNoticeView/NSOperationQueue+WBNoticeExtensions.h"; sourceTree = "<group>"; };
+		F70D084D1B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSOperationQueue+WBNoticeExtensions.m"; path = "WBNoticeView/NSOperationQueue+WBNoticeExtensions.m"; sourceTree = "<group>"; };
+		F70D084E1B4695140063ED0B /* UILabel+WBExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+WBExtensions.h"; path = "WBNoticeView/UILabel+WBExtensions.h"; sourceTree = "<group>"; };
+		F70D084F1B4695140063ED0B /* UILabel+WBExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+WBExtensions.m"; path = "WBNoticeView/UILabel+WBExtensions.m"; sourceTree = "<group>"; };
+		F70D08501B4695140063ED0B /* WBBlueGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBBlueGradientView.h; path = WBNoticeView/WBBlueGradientView.h; sourceTree = "<group>"; };
+		F70D08511B4695140063ED0B /* WBBlueGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBBlueGradientView.m; path = WBNoticeView/WBBlueGradientView.m; sourceTree = "<group>"; };
+		F70D08521B4695140063ED0B /* WBErrorNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBErrorNoticeView.h; path = WBNoticeView/WBErrorNoticeView.h; sourceTree = "<group>"; };
+		F70D08531B4695140063ED0B /* WBErrorNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBErrorNoticeView.m; path = WBNoticeView/WBErrorNoticeView.m; sourceTree = "<group>"; };
+		F70D08541B4695140063ED0B /* WBGrayGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBGrayGradientView.h; path = WBNoticeView/WBGrayGradientView.h; sourceTree = "<group>"; };
+		F70D08551B4695140063ED0B /* WBGrayGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBGrayGradientView.m; path = WBNoticeView/WBGrayGradientView.m; sourceTree = "<group>"; };
+		F70D08561B4695140063ED0B /* WBNoticeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBNoticeOperation.h; path = WBNoticeView/WBNoticeOperation.h; sourceTree = "<group>"; };
+		F70D08571B4695140063ED0B /* WBNoticeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBNoticeOperation.m; path = WBNoticeView/WBNoticeOperation.m; sourceTree = "<group>"; };
+		F70D08581B4695140063ED0B /* WBNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBNoticeView.h; path = WBNoticeView/WBNoticeView.h; sourceTree = "<group>"; };
+		F70D08591B4695140063ED0B /* WBNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBNoticeView.m; path = WBNoticeView/WBNoticeView.m; sourceTree = "<group>"; };
+		F70D085A1B4695140063ED0B /* WBNoticeView+ForSubclassEyesOnly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WBNoticeView+ForSubclassEyesOnly.h"; path = "WBNoticeView/WBNoticeView+ForSubclassEyesOnly.h"; sourceTree = "<group>"; };
+		F70D085B1B4695140063ED0B /* WBRedGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRedGradientView.h; path = WBNoticeView/WBRedGradientView.h; sourceTree = "<group>"; };
+		F70D085C1B4695140063ED0B /* WBRedGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRedGradientView.m; path = WBNoticeView/WBRedGradientView.m; sourceTree = "<group>"; };
+		F70D085D1B4695140063ED0B /* WBStickyNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBStickyNoticeView.h; path = WBNoticeView/WBStickyNoticeView.h; sourceTree = "<group>"; };
+		F70D085E1B4695140063ED0B /* WBStickyNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBStickyNoticeView.m; path = WBNoticeView/WBStickyNoticeView.m; sourceTree = "<group>"; };
+		F70D085F1B4695140063ED0B /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBSuccessNoticeView.h; path = WBNoticeView/WBSuccessNoticeView.h; sourceTree = "<group>"; };
+		F70D08601B4695140063ED0B /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBSuccessNoticeView.m; path = WBNoticeView/WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		F72ACC321B45C2F200D2EF85 /* default_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_banner.png; sourceTree = "<group>"; };
 		F72ACC341B45C6BB00D2EF85 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		F72ACC351B45C6BB00D2EF85 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		F72ACC361B45C6BB00D2EF85 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBMediaFocusViewController.h; sourceTree = "<group>"; };
 		F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBMediaFocusViewController.m; sourceTree = "<group>"; };
-		F75292D41B441B6500DBAC42 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
+		F73FCE1D1B467FE50004F977 /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen.png; sourceTree = "<group>"; };
+		F73FCE231B4680E30004F977 /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
 		F75292D61B441BE800DBAC42 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F75292D71B441BE800DBAC42 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F75292D81B441BE800DBAC42 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -119,7 +156,6 @@
 		F75292DC1B44237000DBAC42 /* MBTwitterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTwitterScroll.m; sourceTree = "<group>"; };
 		F75292DE1B44253C00DBAC42 /* UIScrollView+TwitterCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TwitterCover.h"; sourceTree = "<group>"; };
 		F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TwitterCover.m"; sourceTree = "<group>"; };
-		F75292E11B44256E00DBAC42 /* chandler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chandler.gif; sourceTree = "<group>"; };
 		F763C7021B45A55C00257A56 /* UserTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimelineViewController.h; sourceTree = "<group>"; };
 		F763C7031B45A55C00257A56 /* UserTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimelineViewController.m; sourceTree = "<group>"; };
 		F763C7041B45A55C00257A56 /* UserTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTimelineViewController.xib; sourceTree = "<group>"; };
@@ -192,6 +228,8 @@
 		F7BD18131B41A8E0008CD526 /* UIColor+CIELAB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CIELAB.m"; sourceTree = "<group>"; };
 		F7BD18141B41A8E0008CD526 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
 		F7BD18151B41A8E0008CD526 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
+		F7F7DD0F1B469C6D00A6A4F9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F7F7DD101B469C6D00A6A4F9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70D084A1B4694DC0063ED0B /* QuartzCore.framework in Frameworks */,
 				CDD366961B41240E001025F3 /* Fabric.framework in Frameworks */,
 				CDD366991B41240E001025F3 /* TwitterCore.framework in Frameworks */,
 				CDD366971B41240E001025F3 /* TwitterKit.framework in Frameworks */,
@@ -288,6 +327,7 @@
 		CDD366911B412401001025F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F70D08491B4694DC0063ED0B /* QuartzCore.framework */,
 				CDD366921B41240E001025F3 /* Fabric.framework */,
 				CDD366931B41240E001025F3 /* TwitterKit.framework */,
 				CDD366941B41240E001025F3 /* TwitterKitResources.bundle */,
@@ -305,6 +345,35 @@
 				F79EBD8B1B44EDFB002A8EAA /* UserProfileModal.m */,
 			);
 			name = Modal;
+			sourceTree = "<group>";
+		};
+		F70D086C1B4695190063ED0B /* WBNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				F70D084B1B4695140063ED0B /* NoticeView.bundle */,
+				F70D084C1B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.h */,
+				F70D084D1B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.m */,
+				F70D084E1B4695140063ED0B /* UILabel+WBExtensions.h */,
+				F70D084F1B4695140063ED0B /* UILabel+WBExtensions.m */,
+				F70D08501B4695140063ED0B /* WBBlueGradientView.h */,
+				F70D08511B4695140063ED0B /* WBBlueGradientView.m */,
+				F70D08521B4695140063ED0B /* WBErrorNoticeView.h */,
+				F70D08531B4695140063ED0B /* WBErrorNoticeView.m */,
+				F70D08541B4695140063ED0B /* WBGrayGradientView.h */,
+				F70D08551B4695140063ED0B /* WBGrayGradientView.m */,
+				F70D08561B4695140063ED0B /* WBNoticeOperation.h */,
+				F70D08571B4695140063ED0B /* WBNoticeOperation.m */,
+				F70D08581B4695140063ED0B /* WBNoticeView.h */,
+				F70D08591B4695140063ED0B /* WBNoticeView.m */,
+				F70D085A1B4695140063ED0B /* WBNoticeView+ForSubclassEyesOnly.h */,
+				F70D085B1B4695140063ED0B /* WBRedGradientView.h */,
+				F70D085C1B4695140063ED0B /* WBRedGradientView.m */,
+				F70D085D1B4695140063ED0B /* WBStickyNoticeView.h */,
+				F70D085E1B4695140063ED0B /* WBStickyNoticeView.m */,
+				F70D085F1B4695140063ED0B /* WBSuccessNoticeView.h */,
+				F70D08601B4695140063ED0B /* WBSuccessNoticeView.m */,
+			);
+			name = WBNoticeView;
 			sourceTree = "<group>";
 		};
 		F72ACC391B45C6C200D2EF85 /* SearchViewDashboard */ = {
@@ -374,8 +443,11 @@
 		F764B5001B41528A001B85F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F70D086C1B4695190063ED0B /* WBNoticeView */,
 				F7B369D41B4545030019DCCA /* SWRevealViewController.h */,
 				F7B369D51B4545030019DCCA /* SWRevealViewController.m */,
+				F7F7DD0F1B469C6D00A6A4F9 /* MBProgressHUD.h */,
+				F7F7DD101B469C6D00A6A4F9 /* MBProgressHUD.m */,
 				F75292DE1B44253C00DBAC42 /* UIScrollView+TwitterCover.h */,
 				F75292DF1B44253C00DBAC42 /* UIScrollView+TwitterCover.m */,
 				F75292DB1B44237000DBAC42 /* MBTwitterScroll.h */,
@@ -483,8 +555,8 @@
 		F7D738951B4195A4007A6551 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				F75292E11B44256E00DBAC42 /* chandler.gif */,
-				F75292D41B441B6500DBAC42 /* cover.png */,
+				F73FCE1D1B467FE50004F977 /* launch_screen.png */,
+				F73FCE231B4680E30004F977 /* login_bg.png */,
 				F7B36AC31B454C680019DCCA /* reveal-icon.png */,
 				F7B36AC41B454C680019DCCA /* reveal-icon@2x.png */,
 				F72ACC321B45C2F200D2EF85 /* default_banner.png */,
@@ -575,20 +647,21 @@
 			files = (
 				CDD366981B41240E001025F3 /* TwitterKitResources.bundle in Resources */,
 				F7B36ACF1B45598D0019DCCA /* TweetsDetailsViewController.xib in Resources */,
+				F73FCE241B4680E30004F977 /* login_bg.png in Resources */,
 				CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */,
 				CDD3667B1B41239C001025F3 /* LaunchScreen.xib in Resources */,
 				F7B36AC51B454C680019DCCA /* reveal-icon.png in Resources */,
 				F7B36ABB1B454A9B0019DCCA /* RearViewController.xib in Resources */,
 				CDD3669B1B412551001025F3 /* LoginViewController.xib in Resources */,
 				CDD366781B41239C001025F3 /* Images.xcassets in Resources */,
-				F75292E21B44256E00DBAC42 /* chandler.gif in Resources */,
-				F75292D51B441B6500DBAC42 /* cover.png in Resources */,
 				F7B36AC61B454C680019DCCA /* reveal-icon@2x.png in Resources */,
 				F764B4FD1B414905001B85F4 /* TweetCell.xib in Resources */,
 				F75292DA1B441BE800DBAC42 /* ProfileViewController.xib in Resources */,
 				F763C7061B45A55C00257A56 /* UserTimelineViewController.xib in Resources */,
 				F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */,
 				F72ACC381B45C6BB00D2EF85 /* SearchViewController.xib in Resources */,
+				F70D08611B4695140063ED0B /* NoticeView.bundle in Resources */,
+				F73FCE1E1B467FE50004F977 /* launch_screen.png in Resources */,
 				F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +700,7 @@
 				F7B36ACE1B45598D0019DCCA /* TweetsDetailsViewController.m in Sources */,
 				F7B36A581B45481C0019DCCA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F7B36A5D1B45481C0019DCCA /* UIRefreshControl+AFNetworking.m in Sources */,
+				F70D08631B4695140063ED0B /* UILabel+WBExtensions.m in Sources */,
 				F7B36A5A1B45481C0019DCCA /* UIButton+AFNetworking.m in Sources */,
 				F7B36A591B45481C0019DCCA /* UIAlertView+AFNetworking.m in Sources */,
 				F7B36A731B4548310019DCCA /* AFHTTPRequestOperationManager.m in Sources */,
@@ -636,6 +710,7 @@
 				F75292D91B441BE800DBAC42 /* ProfileViewController.m in Sources */,
 				F72ACC371B45C6BB00D2EF85 /* SearchViewController.m in Sources */,
 				F75292DD1B44237000DBAC42 /* MBTwitterScroll.m in Sources */,
+				F70D08651B4695140063ED0B /* WBErrorNoticeView.m in Sources */,
 				F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */,
 				F7B36A5C1B45481C0019DCCA /* UIProgressView+AFNetworking.m in Sources */,
 				CDD3666D1B41239C001025F3 /* AppDelegate.m in Sources */,
@@ -648,21 +723,30 @@
 				F7BD181A1B41A8E0008CD526 /* UIViewController+Chameleon.m in Sources */,
 				CDD3666A1B41239C001025F3 /* main.m in Sources */,
 				F7BD18171B41A8E0008CD526 /* NSArray+Chameleon.m in Sources */,
+				F70D08621B4695140063ED0B /* NSOperationQueue+WBNoticeExtensions.m in Sources */,
 				F7B36A721B4548310019DCCA /* AFHTTPRequestOperation.m in Sources */,
 				F7B36ABA1B454A9B0019DCCA /* RearViewController.m in Sources */,
 				F7B36A7A1B4548310019DCCA /* AFURLSessionManager.m in Sources */,
+				F70D08681B4695140063ED0B /* WBNoticeView.m in Sources */,
 				F7B369D61B4545030019DCCA /* SWRevealViewController.m in Sources */,
+				F70D08661B4695140063ED0B /* WBGrayGradientView.m in Sources */,
+				F70D08671B4695140063ED0B /* WBNoticeOperation.m in Sources */,
+				F7F7DD111B469C6D00A6A4F9 /* MBProgressHUD.m in Sources */,
 				F7B36A5B1B45481C0019DCCA /* UIImageView+AFNetworking.m in Sources */,
+				F70D08691B4695140063ED0B /* WBRedGradientView.m in Sources */,
 				CDD366A41B413002001025F3 /* TweetsModal.m in Sources */,
 				F792D60F1B4413320038EB09 /* MentionsViewController.m in Sources */,
 				F7B36A761B4548310019DCCA /* AFSecurityPolicy.m in Sources */,
 				F7BD18061B41A77E008CD526 /* CINBouncyButton.m in Sources */,
 				F7B36A791B4548310019DCCA /* AFURLResponseSerialization.m in Sources */,
+				F70D086B1B4695140063ED0B /* WBSuccessNoticeView.m in Sources */,
+				F70D08641B4695140063ED0B /* WBBlueGradientView.m in Sources */,
 				F7B36A781B4548310019DCCA /* AFURLRequestSerialization.m in Sources */,
 				F7BD18181B41A8E0008CD526 /* UIColor+Chameleon.m in Sources */,
 				F7B36A571B45481C0019DCCA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F7B36A5E1B45481C0019DCCA /* UIWebView+AFNetworking.m in Sources */,
 				F7BD18191B41A8E0008CD526 /* UIColor+CIELAB.m in Sources */,
+				F70D086A1B4695140063ED0B /* WBStickyNoticeView.m in Sources */,
 				F764B4FC1B414905001B85F4 /* TweetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

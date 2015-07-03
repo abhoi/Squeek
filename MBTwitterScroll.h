@@ -28,7 +28,6 @@ typedef enum : NSUInteger {
 - (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle;
 - (MBTwitterScroll *)initScrollViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle contentHeight:(CGFloat)height;
 
-
 @property (strong, nonatomic) UIImageView *avatarImage;
 @property (strong, nonatomic) UIView *header;
 @property (strong, nonatomic) UILabel *headerLabel;

@@ -12,11 +12,15 @@
 #import "UIImageView+AFNetworking.h"
 #import "Chameleon.h"
 #include "SWRevealViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ProfileViewController ()
 
 @property UserProfileModal *currentUser;
-
+@property UIImageView *imgProfileView;
+@property UIImageView *imgBannerView;
+@property UIImage *tempProfile;
+@property UIImage *tempBanner;
 @end
 
 @implementation ProfileViewController
@@ -24,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self appearance];
     [self makeAPIRequest];
 }
@@ -33,17 +38,19 @@
 {
     
     self.title = [NSString stringWithFormat:@"@%@", [[[Twitter sharedInstance] session] userName]];
+    //[tblTweets setAllowsSelection:NO];
+    //self.title = NSLocalizedString(@"Timeline", nil);
+    self.title = [[NSString alloc] initWithFormat:@"@%@", [[[Twitter sharedInstance] session] userName]];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]};
     SWRevealViewController *revealController = [self revealViewController];
-    
-    
     //[revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     
-    //self.navigationItem.leftBarButtonItem = revealButtonItem;
-    self.revealViewController.navigationItem.leftBarButtonItem = revealButtonItem;
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+
     //    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
     //                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
     //
@@ -80,19 +87,44 @@
             id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             UserProfileModal *user = [[UserProfileModal alloc] initWithData:responseData];
             _currentUser = user;
-            UIImage *userProfileTemp = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userProfileImg]];
-            UIImage *userBannerTemp;
-            if (_currentUser.userBannerImg == nil) {
-                userBannerTemp = [UIImage imageNamed:@"default_banner"];
-            } else {
-                userBannerTemp = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
-            }
-            MBTwitterScroll *myTableView = [[MBTwitterScroll alloc] initTableViewWithBackgound:userBannerTemp avatarImage:userProfileTemp titleString:[user screenName] subtitleString:[user userName] buttonTitle:@"Follow"];
-            myTableView.tableView.delegate = self;
-            myTableView.tableView.dataSource = self;
-            myTableView.delegate = self;
-            myTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-            [self.view addSubview:myTableView];
+            
+            //__weak typeof(self)weakSelf = self;
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                _tempProfile = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userProfileImg]];
+                _tempBanner = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    MBTwitterScroll *myTableView = [[MBTwitterScroll alloc] initTableViewWithBackgound:_tempBanner avatarImage:_tempProfile titleString:[user screenName] subtitleString:[user userName] buttonTitle:@"Follow"];
+                    myTableView.tableView.delegate = self;
+                    myTableView.tableView.dataSource = self;
+                    myTableView.delegate = self;
+                    myTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                    [self.view addSubview:myTableView];
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                });
+            });
+            
+            /*[_imgBannerView setImageWithURLRequest:[NSURLRequest requestWithURL:user.userBannerImg] placeholderImage:[UIImage imageNamed:@"default_banner"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                _tempBanner = image;
+                __strong typeof(weakSelf)strongSelf = weakSelf;
+                MBTwitterScroll *myTableView = [[MBTwitterScroll alloc] initTableViewWithBackgound:strongSelf.tempBanner avatarImage:strongSelf.tempProfile titleString:[user screenName] subtitleString:[user userName] buttonTitle:@"Follow"];
+                myTableView.tableView.delegate = strongSelf;
+                myTableView.tableView.dataSource = strongSelf;
+                myTableView.delegate = strongSelf;
+                myTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                [strongSelf.view addSubview:myTableView];
+
+                
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                _tempBanner = [UIImage imageNamed:@"default_banner"];
+            }];
+            
+            [_imgProfileView setImageWithURLRequest:[NSURLRequest requestWithURL:user.userProfileImg] placeholderImage:[UIImage imageNamed:@"default_banner"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                _tempProfile = image;
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                _tempProfile = [UIImage imageNamed:@"default_banner"];
+            }];*/
+            
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
@@ -192,6 +224,8 @@
         default:
             break;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.userInteractionEnabled = NO;
     return cell;
 }
 /*

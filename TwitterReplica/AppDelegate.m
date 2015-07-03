@@ -48,10 +48,6 @@
 
     RearViewController *rearViewController = [[RearViewController alloc] initWithNibName:@"RearViewController" bundle:nil];
     TweetsViewController *tweetsViewController = [[TweetsViewController alloc]initWithNibName:@"TweetsViewController" bundle:nil];
-    UserTimelineViewController *userViewController = [[UserTimelineViewController alloc]initWithNibName:@"UserTimelineViewController" bundle:nil];
-    MentionsViewController *mentionsViewController = [[MentionsViewController alloc]initWithNibName:@"MentionsViewController" bundle:nil];
-    ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
-    SearchViewController *searchViewController = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
     
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
     UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];

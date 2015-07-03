@@ -18,6 +18,7 @@
     __weak IBOutlet UITableView *tblTweets;
     BOOL sinceIDRequestToggle;
     int counter;
+    UIRefreshControl *refreshControl;
 }
 @property NSMutableArray *arrTweetsModal;
 @property uint totalTweets;
@@ -35,6 +36,15 @@
     _arrTweetsModal = [[NSMutableArray alloc]init];
     [self appearance];
     [self makeAPIRequest];
+    
+    refreshControl = [[UIRefreshControl alloc]init];
+    [tblTweets addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void) refreshTable {
+    [self makeAPIRequest];
+    [refreshControl endRefreshing];
 }
 
 - (void) makeAPIRequest {
@@ -144,6 +154,9 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
+    UIBarButtonItem *composeButtonItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeTweet)];
+    self.navigationItem.rightBarButtonItem = composeButtonItem2;
+    
     //    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
     //                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
     //
@@ -161,6 +174,11 @@
      self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
      self.navigationController.navigationBar.alpha = 0.80f;
      self.navigationController.navigationBar.translucent = YES;*/
+}
+
+- (void) composeTweet {
+    SLComposeViewController *composeV = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [self presentViewController:composeV animated:YES completion:nil];
 }
 
 -(void)LogOutAction

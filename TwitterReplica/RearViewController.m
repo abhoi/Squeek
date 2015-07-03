@@ -14,6 +14,7 @@
 #include "TweetsViewController.h"
 #import "UserTimelineViewController.h"
 #import "MentionsViewController.h"
+#import "ProfileViewController.h"
 
 @interface RearViewController () <UITableViewDelegate, UITableViewDataSource> {
     
@@ -25,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblScreenName;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBannerView;
-
 @end
 
 @implementation RearViewController
@@ -67,6 +67,11 @@
             
             [_imgProfileView setImageWithURLRequest:[NSURLRequest requestWithURL:user.userProfileImg] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                 _imgProfileView.image = image;
+                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
+                singleTap.numberOfTapsRequired = 1;
+                singleTap.numberOfTouchesRequired = 1;
+                [_imgProfileView setUserInteractionEnabled:YES];
+                [_imgProfileView addGestureRecognizer:singleTap];
             } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                 _imgProfileView.image = nil;
             }];
@@ -89,6 +94,15 @@
         }
     }];
 }
+
+- (void) tapImage: (UITapGestureRecognizer *) singleTap {
+    UIViewController *newFrontViewController = [[ProfileViewController alloc] init];
+    [[UINavigationBar appearance] setTintColor:[UIColor flatWhiteColor]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontViewController];
+    [self.revealViewController pushFrontViewController:navigationController animated:YES];
+    selectedRow = 9;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,22 +169,28 @@
             temp = [[NSString alloc] initWithFormat:@"Followers"];
             cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.followersCount];
             cell.textLabel.text = temp;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.userInteractionEnabled = NO;
             break;
         case 4:
             temp = [[NSString alloc] initWithFormat:@"Following"];
             cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.followingCount];
             cell.textLabel.text = temp;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.userInteractionEnabled = NO;
             break;
         case 5:
             temp = [[NSString alloc] initWithFormat:@"Listed"];
             cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", _currentUser.listedCount];
             cell.textLabel.text = temp;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.userInteractionEnabled = NO;
             break;
         default:
             break;
     }
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor flatGrayColorDark];
+    selectionColor.backgroundColor = [UIColor flatBlackColor];
     cell.selectedBackgroundView = selectionColor;
     return cell;
 }

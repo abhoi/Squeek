@@ -79,6 +79,7 @@
                 <constraint firstItem="qqA-2D-Lbo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="ti9-KZ-z5f"/>
                 <constraint firstItem="LhW-U8-JPx" firstAttribute="top" secondItem="m9b-qI-0BO" secondAttribute="bottom" constant="-12" id="whd-01-YQZ"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="519.5" y="280.5"/>
         </view>

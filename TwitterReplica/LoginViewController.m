@@ -40,7 +40,13 @@
     [twitterButton setBackgroundColor:[UIColor darkGrayColor]];
     [self.view addSubview:twitterButton];
     
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     [super viewDidLoad];
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)viewDidAppear:(BOOL)animated

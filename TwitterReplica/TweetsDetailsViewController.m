@@ -8,6 +8,7 @@
 
 #import "TweetsDetailsViewController.h"
 #import "Chameleon.h"
+#import "URBMediaFocusViewController.h"
 
 @interface TweetsDetailsViewController () <UIScrollViewDelegate>{
     
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *screenName;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property URBMediaFocusViewController *mediaController;
 
 @end
 
@@ -26,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor flatBlackColorDark];
     [_profileImgView setImageWithURLRequest:[NSURLRequest requestWithURL:_tweetRef.profileImg] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -47,6 +50,11 @@
         _tweetImgView.clipsToBounds = YES;
         _tweetImgView.layer.backgroundColor=[[UIColor clearColor] CGColor];
         _tweetImgView.layer.cornerRadius = _tweetImgView.bounds.size.width * 0.02;
+            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
+            singleTap.numberOfTapsRequired = 1;
+            singleTap.numberOfTouchesRequired = 1;
+            [_tweetImgView setUserInteractionEnabled:YES];
+            [_tweetImgView addGestureRecognizer:singleTap];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         
         }];
@@ -54,6 +62,12 @@
         constraintImgHeight.constant = 0.0f;
         return;
     }
+}
+
+- (void) tapImage: (UITapGestureRecognizer *) singleTap {
+    UIImageView *temp = (UIImageView *)singleTap.view;
+    self.mediaController = [[URBMediaFocusViewController alloc] init];
+    [self.mediaController showImage:temp.image fromView:singleTap.view];
 }
 
 - (void)didReceiveMemoryWarning {
