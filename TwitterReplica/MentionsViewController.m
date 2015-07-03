@@ -10,12 +10,12 @@
     __weak IBOutlet UITableView *tblTweets;
     BOOL sinceIDRequestToggle;
     int counter;
+    UIRefreshControl *refreshControl;
 }
 @property NSMutableArray *arrTweetsModal;
 @property uint totalTweets;
 @property NSString *sinceID;
 @property NSString *maxID;
-@property UIRefreshControl *refreshControl;
 @end
 
 @implementation MentionsViewController
@@ -28,16 +28,14 @@
     [self appearance];
     [self makeAPIRequest];
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    _refreshControl = refreshControl;
-    [self.view addSubview:refreshControl];
+    refreshControl = refreshControl;
+    [tblTweets addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)refreshTable {
     [self makeAPIRequest];
-    [_refreshControl endRefreshing];
-    [tblTweets reloadData];
+    [refreshControl endRefreshing];
 }
 
 - (void) makeAPIRequest {
@@ -95,7 +93,9 @@
 }
 
 - (void) makeMaxIDAPIRequest {
-    [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
+    if ([_arrTweetsModal count] > 0) {
+        [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
+    }
     NSString *url = @"https://api.twitter.com/1.1/statuses/mentions_timeline.json";
     NSDictionary *param;
     if (_maxID == nil) {
@@ -114,14 +114,18 @@
                 TweetsModal *modal = [[TweetsModal alloc]initWithData:dictData];
                 [_arrTweetsModal addObject:modal];
             }
-            _maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            if ([_arrTweetsModal count] > 0) {
+                _maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
+            }
             [tblTweets reloadData];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
         }
     }];
-    _totalTweets--;
+    if ([_arrTweetsModal count] > 0) {
+        _totalTweets--;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,7 +140,8 @@
     //[tblTweets setAllowsSelection:NO];
     
     
-    self.title = NSLocalizedString(@"Timeline", nil);
+    self.title = NSLocalizedString(@"Mentions", nil);
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]};
     
     SWRevealViewController *revealController = [self revealViewController];
     

@@ -131,12 +131,10 @@
 {
     [tblTweets setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     //[tblTweets setAllowsSelection:NO];
-    
-    
-    self.title = NSLocalizedString(@"Timeline", nil);
-    
+    //self.title = NSLocalizedString(@"Timeline", nil);
+    self.title = [[NSString alloc] initWithFormat:@"@%@ Timeline", [[[Twitter sharedInstance] session] userName]];
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]};
     SWRevealViewController *revealController = [self revealViewController];
-    
     
     //[revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];

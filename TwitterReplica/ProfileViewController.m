@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [self appearance];
     [self makeAPIRequest];
 }
 
@@ -32,8 +32,7 @@
 -(void)appearance
 {
     
-    self.title = NSLocalizedString(@"Timeline", nil);
-    
+    self.title = [NSString stringWithFormat:@"@%@", [[[Twitter sharedInstance] session] userName]];
     SWRevealViewController *revealController = [self revealViewController];
     
     

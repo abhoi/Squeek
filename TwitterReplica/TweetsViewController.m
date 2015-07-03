@@ -19,6 +19,7 @@
     __weak IBOutlet UITableView *tblTweets;
     BOOL sinceIDRequestToggle;
     int counter;
+    UIRefreshControl *refreshControl;
 }
 @property NSMutableArray *arrTweetsModal;
 @property uint totalTweets;
@@ -36,10 +37,23 @@
     _arrTweetsModal = [[NSMutableArray alloc]init];
     [self appearance];
     [self makeAPIRequest];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [tblTweets addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
 }
+
+-(void)refreshTable
+{
+    [self makeAPIRequest];
+    [refreshControl endRefreshing];
+}
+
 
 - (void) makeAPIRequest {
     // request API
+    /*if ([_arrTweetsModal count] != 0) {
+        [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
+    }*/
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
     if (_sinceID == nil) {
@@ -93,6 +107,9 @@
 }
 
 - (void) makeMaxIDAPIRequest {
+    /*if ([_arrTweetsModal count] != 0) {
+        [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
+    }*/
     [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
@@ -132,10 +149,8 @@
 {
     [tblTweets setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     //[tblTweets setAllowsSelection:NO];
-    
-    
     self.title = NSLocalizedString(@"Timeline", nil);
-    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]};
     SWRevealViewController *revealController = [self revealViewController];
     
     
@@ -160,10 +175,14 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut"
                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(makeAPIRequest)];
-    self.navigationItem.leftBarButtonItem = refreshButton;
-    self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    self.navigationItem.rightBarButtonItem = rightButton;*/
+    
+    // Refresh Bar Button
+    /*UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(makeAPIRequest)];
+    self.navigationItem.rightBarButtonItem = refreshButton;*/
+    
+    
+    /*self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
     self.navigationController.navigationBar.alpha = 0.80f;
     self.navigationController.navigationBar.translucent = YES;*/
 }

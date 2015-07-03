@@ -9,7 +9,10 @@
 #import "TweetsDetailsViewController.h"
 #import "Chameleon.h"
 
-@interface TweetsDetailsViewController () <UIScrollViewDelegate>
+@interface TweetsDetailsViewController () <UIScrollViewDelegate>{
+    
+    __weak IBOutlet NSLayoutConstraint *constraintImgHeight;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *tweetImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImgView;
@@ -48,6 +51,7 @@
         
         }];
     } else {
+        constraintImgHeight.constant = 0.0f;
         return;
     }
 }

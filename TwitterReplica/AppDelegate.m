@@ -16,9 +16,10 @@
 #import "RearViewController.h"
 #import "ProfileViewController.h"
 #import "MentionsViewController.h"
+#import "SearchViewController.h"
 
 @interface AppDelegate () <SWRevealViewControllerDelegate>
-
+@property SWRevealViewController *revealController;
 @end
 
 @implementation AppDelegate
@@ -50,16 +51,18 @@
     UserTimelineViewController *userViewController = [[UserTimelineViewController alloc]initWithNibName:@"UserTimelineViewController" bundle:nil];
     MentionsViewController *mentionsViewController = [[MentionsViewController alloc]initWithNibName:@"MentionsViewController" bundle:nil];
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    SearchViewController *searchViewController = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+    
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
     UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor flatBlackColorDark]];
+    frontNavigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
+    rearNavigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
     
-    frontNavigationController.navigationBar.tintColor = [UIColor flatBlackColor];
-    rearNavigationController.navigationBar.tintColor = [UIColor flatBlackColor];
-    
-    SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
-    revealController.delegate = self;
-    revealController.frontViewShadowColor = [UIColor flatBlackColor];
-    self.viewController = revealController;
+    _revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
+    _revealController.delegate = self;
+    _revealController.frontViewShadowColor = [UIColor flatBlackColor];
+    self.viewController = _revealController;
     self.window.rootViewController = self.viewController;
 }
 

@@ -38,9 +38,10 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Hq-sF-sgV">
                     <rect key="frame" x="0.0" y="0.0" width="315" height="203"/>
+                    <color key="tintColor" red="0.14345955848693848" green="0.25136271119117737" blue="0.15019753575325012" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-XW-RlL">
-                    <rect key="frame" x="0.0" y="255" width="315" height="334"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="white" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-XW-RlL">
+                    <rect key="frame" x="0.0" y="255" width="315" height="360"/>
                     <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="separatorColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,7 +77,7 @@
                 <constraint firstItem="2Hq-sF-sgV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c8t-Hu-O25"/>
                 <constraint firstItem="SdQ-XW-RlL" firstAttribute="centerX" secondItem="H31-w7-hc9" secondAttribute="centerX" id="chX-74-ncc"/>
                 <constraint firstItem="2Hq-sF-sgV" firstAttribute="centerX" secondItem="nb6-jD-crc" secondAttribute="centerX" id="emp-No-gzr"/>
-                <constraint firstAttribute="bottom" secondItem="SdQ-XW-RlL" secondAttribute="bottom" constant="78" id="fjb-d4-kfr"/>
+                <constraint firstAttribute="bottom" secondItem="SdQ-XW-RlL" secondAttribute="bottom" constant="52" id="fjb-d4-kfr"/>
                 <constraint firstItem="2Hq-sF-sgV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="p7C-Fp-qGf"/>
                 <constraint firstItem="H31-w7-hc9" firstAttribute="leading" secondItem="bNt-oB-vdi" secondAttribute="leading" id="tBg-SE-OBN"/>
             </constraints>

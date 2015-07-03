@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetsDetailsViewController">
             <connections>
+                <outlet property="constraintImgHeight" destination="AaD-rl-vkY" id="P09-V4-IcO"/>
                 <outlet property="profileImgView" destination="vrm-GF-OEi" id="gc8-Zw-ZFt"/>
                 <outlet property="screenName" destination="m9b-qI-0BO" id="rEL-qU-CBB"/>
                 <outlet property="tweetImgView" destination="qqA-2D-Lbo" id="ZTb-vu-JY4"/>

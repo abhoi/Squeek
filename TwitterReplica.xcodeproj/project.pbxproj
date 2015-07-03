@@ -23,6 +23,8 @@
 		CDD366A01B412B49001025F3 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD3669E1B412B49001025F3 /* TweetsViewController.xib */; };
 		CDD366A41B413002001025F3 /* TweetsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD366A31B413002001025F3 /* TweetsModal.m */; };
 		F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = F72ACC321B45C2F200D2EF85 /* default_banner.png */; };
+		F72ACC371B45C6BB00D2EF85 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72ACC351B45C6BB00D2EF85 /* SearchViewController.m */; };
+		F72ACC381B45C6BB00D2EF85 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72ACC361B45C6BB00D2EF85 /* SearchViewController.xib */; };
 		F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */; };
 		F75292D51B441B6500DBAC42 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F75292D41B441B6500DBAC42 /* cover.png */; };
 		F75292D91B441BE800DBAC42 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75292D71B441BE800DBAC42 /* ProfileViewController.m */; };
@@ -104,6 +106,9 @@
 		CDD366A21B413002001025F3 /* TweetsModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsModal.h; sourceTree = "<group>"; };
 		CDD366A31B413002001025F3 /* TweetsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsModal.m; sourceTree = "<group>"; };
 		F72ACC321B45C2F200D2EF85 /* default_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_banner.png; sourceTree = "<group>"; };
+		F72ACC341B45C6BB00D2EF85 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		F72ACC351B45C6BB00D2EF85 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		F72ACC361B45C6BB00D2EF85 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		F72C5B831B429161001FF455 /* URBMediaFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBMediaFocusViewController.h; sourceTree = "<group>"; };
 		F72C5B841B429161001FF455 /* URBMediaFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBMediaFocusViewController.m; sourceTree = "<group>"; };
 		F75292D41B441B6500DBAC42 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
@@ -237,6 +242,7 @@
 		CDD366661B41239C001025F3 /* TwitterReplica */ = {
 			isa = PBXGroup;
 			children = (
+				F72ACC391B45C6C200D2EF85 /* SearchViewDashboard */,
 				F7B36AC11B454AA80019DCCA /* RearViewController */,
 				F75292D31B441AB100DBAC42 /* ProfileViewDashboard */,
 				F763C7071B45A56400257A56 /* UserTimelineDashboard */,
@@ -299,6 +305,16 @@
 				F79EBD8B1B44EDFB002A8EAA /* UserProfileModal.m */,
 			);
 			name = Modal;
+			sourceTree = "<group>";
+		};
+		F72ACC391B45C6C200D2EF85 /* SearchViewDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F72ACC341B45C6BB00D2EF85 /* SearchViewController.h */,
+				F72ACC351B45C6BB00D2EF85 /* SearchViewController.m */,
+				F72ACC361B45C6BB00D2EF85 /* SearchViewController.xib */,
+			);
+			name = SearchViewDashboard;
 			sourceTree = "<group>";
 		};
 		F75292D31B441AB100DBAC42 /* ProfileViewDashboard */ = {
@@ -572,6 +588,7 @@
 				F75292DA1B441BE800DBAC42 /* ProfileViewController.xib in Resources */,
 				F763C7061B45A55C00257A56 /* UserTimelineViewController.xib in Resources */,
 				F792D6101B4413320038EB09 /* MentionsViewController.xib in Resources */,
+				F72ACC381B45C6BB00D2EF85 /* SearchViewController.xib in Resources */,
 				F72ACC331B45C2F200D2EF85 /* default_banner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +634,7 @@
 				CDD3669F1B412B49001025F3 /* TweetsViewController.m in Sources */,
 				F7BD18161B41A8E0008CD526 /* ChameleonStatusBar.m in Sources */,
 				F75292D91B441BE800DBAC42 /* ProfileViewController.m in Sources */,
+				F72ACC371B45C6BB00D2EF85 /* SearchViewController.m in Sources */,
 				F75292DD1B44237000DBAC42 /* MBTwitterScroll.m in Sources */,
 				F72C5B851B429161001FF455 /* URBMediaFocusViewController.m in Sources */,
 				F7B36A5C1B45481C0019DCCA /* UIProgressView+AFNetworking.m in Sources */,
