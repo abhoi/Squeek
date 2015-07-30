@@ -92,9 +92,13 @@
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                 _tempProfile = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userProfileImg]];
-                _tempBanner = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
+                if (user.userBannerImg == nil) {
+                    _tempBanner = [UIImage imageNamed:@"default_banner"];
+                } else {
+                    _tempBanner = [[UIImage alloc] initWithData:[[NSData alloc] initWithContentsOfURL:user.userBannerImg]];
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    MBTwitterScroll *myTableView = [[MBTwitterScroll alloc] initTableViewWithBackgound:_tempBanner avatarImage:_tempProfile titleString:[user screenName] subtitleString:[user userName] buttonTitle:@"Follow"];
+                    MBTwitterScroll *myTableView = [[MBTwitterScroll alloc] initTableViewWithBackgound:_tempBanner avatarImage:_tempProfile titleString:[user screenName] subtitleString:[user userName] buttonTitle:nil];
                     myTableView.tableView.delegate = self;
                     myTableView.tableView.dataSource = self;
                     myTableView.delegate = self;

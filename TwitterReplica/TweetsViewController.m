@@ -12,8 +12,6 @@
 #import "LoginViewController.h"
 #import "Chameleon.h"
 #import "TweetsDetailsViewController.h"
-#import "WBNoticeView.h"
-#import "WBStickyNoticeView.h"
 
 @interface TweetsViewController ()<UITableViewDataSource,UITableViewDelegate, UITabBarControllerDelegate>
 {
@@ -26,7 +24,6 @@
 @property uint totalTweets;
 @property NSString *sinceID;
 @property NSString *maxID;
-
 @end
 
 @implementation TweetsViewController
@@ -45,16 +42,13 @@
 
 -(void)refreshTable
 {
-    [self makeAPIRequest];
-    [refreshControl endRefreshing];
+    if (refreshControl.isRefreshing) {
+        [self makeAPIRequest];
+        [refreshControl endRefreshing];
+    }
 }
 
-
 - (void) makeAPIRequest {
-    // request API
-    /*if ([_arrTweetsModal count] != 0) {
-        [_arrTweetsModal removeObjectAtIndex:[_arrTweetsModal count] - 1];
-    }*/
     NSString *url = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
     NSDictionary *param;
     if (_sinceID == nil) {
@@ -66,7 +60,6 @@
     }
     NSError *error;
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:param error:&error];
-    
     [[[Twitter sharedInstance] APIClient]sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         if (response) {
             id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -96,9 +89,10 @@
                     [_arrTweetsModal insertObject:modal atIndex:0];
                 }
             }
-            //_maxID = [[responseData objectAtIndex:[responseData count] - 1] objectForKey:@"id_str"];
-            TweetsModal *tmp = (TweetsModal *)[_arrTweetsModal objectAtIndex:[_arrTweetsModal count] - 1 ];
-            _maxID = [NSString stringWithFormat:@"%@", tmp.tweetID];
+            if ([_arrTweetsModal count] > 0) {
+                TweetsModal *tmp = (TweetsModal *)[_arrTweetsModal objectAtIndex:[_arrTweetsModal count] - 1];
+                _maxID = [NSString stringWithFormat:@"%@", tmp.tweetID];
+            }
             [tblTweets reloadData];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[connectionError localizedDescription] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
@@ -152,7 +146,6 @@
 -(void)appearance
 {
     [tblTweets setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    //[tblTweets setAllowsSelection:NO];
     self.title = NSLocalizedString(@"Timeline", nil);
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]};
     SWRevealViewController *revealController = [self revealViewController];
@@ -165,65 +158,14 @@
                                                                          style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    /*
-    UIBarButtonItem *composeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(composeTweet)];
-    self.navigationItem.rightBarButtonItem = composeButtonItem;
-    */
     UIBarButtonItem *composeButtonItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeTweet)];
     self.navigationItem.rightBarButtonItem = composeButtonItem2;
-    /*UIBarButtonItem *logoutItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
-    self.navigationItem.rightBarButtonItem = logoutItem;*/
-//    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
-//                                                                              style:UIBarButtonItemStylePlain target:revealController action:@selector(rightRevealToggle:)];
-//    
-//    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
-
-    
-    
-    /*NSLog(@"%lu",(unsigned long)[self.navigationController.viewControllers count]);
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut"
-                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(LogOutAction)];
-    self.navigationItem.rightBarButtonItem = rightButton;*/
-    
-    // Refresh Bar Button
-    /*UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(makeAPIRequest)];
-    self.navigationItem.rightBarButtonItem = refreshButton;*/
-    
-    
-    /*self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
-    self.navigationController.navigationBar.alpha = 0.80f;
-    self.navigationController.navigationBar.translucent = YES;*/
 }
 
 - (void) composeTweet {
     SLComposeViewController *composeV = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [self presentViewController:composeV animated:YES completion:nil];
 }
-
--(void)LogOutAction
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    /*if ([self.navigationController viewControllers].count == 1) {
-        LoginViewController *login = [[LoginViewController alloc]init];
-        [self.navigationController pushViewController:login animated:YES];
-    }*/
-    
-    NSLog(@"Signing out of: %@",[[[Twitter sharedInstance] session] userName]);
-    [[Twitter sharedInstance] logOut];
-}
-
-//-(CGFloat)getStringHeight:(NSString *)str
-//{
-//    [self.view layoutIfNeeded];
-//    
-//    UILabel *lblTmp = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, tblTweets.bounds.size.width - 74, 20)];
-//    [lblTmp setLineBreakMode:NSLineBreakByWordWrapping];
-//    [lblTmp setNumberOfLines:0];
-//    [lblTmp.text size]
-//    
-//    return 0;
-//}
 
 - (CGFloat)heightForText:(NSString*)text font:(UIFont*)font withinWidth:(CGFloat)width {
     font = [UIFont systemFontOfSize:16];
@@ -297,9 +239,8 @@
     
     float reload_distance = 50;
     if(y > h + reload_distance) {
-        NSLog(@"Reached end of table");
+        NSLog(@"Refreshing old tweets");
         [self makeMaxIDAPIRequest];
     }
 }
-
 @end
